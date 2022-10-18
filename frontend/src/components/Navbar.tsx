@@ -1,36 +1,58 @@
 import "./Navbar.css";
-import Clock from "../assets/clock-regular.svg";
-import Checkbox from "../assets/square-check-regular.svg";
-import Notes from "../assets/note-sticky-regular.svg";
-import Play from "../assets/circle-play-regular.svg";
-import Settings from "../assets/gear-solid.svg";
-import User from "../assets/user-regular.svg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlay, faClock, faSquareCheck, faStickyNote, faSun, faUser } from '@fortawesome/free-regular-svg-icons';
+import { useState } from "react";
+import React from "react";
+
+interface buttonStates {
+  clock: boolean,
+  todo: boolean,
+  notes: boolean,
+  play: boolean,
+  setting: boolean,
+  user: boolean,
+}
 
 const Navbar = () => {
+  const [toggleBtn, setToggleBtn] = useState<buttonStates>({
+    clock: false,
+    todo: false,
+    notes: false,
+    play: false,
+    setting: false,
+    user: false,
+  });
+
+  function handleOnClick(key: keyof buttonStates) {
+    const existingState = {...toggleBtn};
+    existingState[key] = !existingState[key];
+    setToggleBtn(existingState);
+  }
+
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <button className="pomo-btn">
-          <img src={Clock} height={20} />
-        </button>
-        <button className="todo-btn">
-          <img src={Checkbox} height={20} />
-        </button>
-        <button className="notes-btn">
-          <img src={Notes} height={20} />
-        </button>
-        <button className="yt-btn">
-          <img src={Play} height={20} />
-        </button>
+        <span>
+          <FontAwesomeIcon className="btn" style={{opacity: toggleBtn.clock ? 1 : 0.7}} onClick={() => handleOnClick("clock")} icon={faClock} size="lg"/>
+        </span>
+        <span>
+          <FontAwesomeIcon className="btn" style={{opacity: toggleBtn.todo ? 1 : 0.7}} onClick={() => handleOnClick("todo")} icon={faSquareCheck} size="lg"/>
+        </span>
+        <span>
+          <FontAwesomeIcon className="btn" style={{opacity: toggleBtn.notes ? 1 : 0.7}} onClick={() => handleOnClick("notes")} icon={faStickyNote} size="lg"/>
+        </span>
+        <span>
+          <FontAwesomeIcon className="btn" style={{opacity: toggleBtn.play ? 1 : 0.7}} onClick={() => handleOnClick("play")} icon={faCirclePlay} size="lg"/>
+        </span>
       </div>
 
       <div className="navbar-right">
-        <button className="settings-btn">
-          <img src={Settings} height={20} />
-        </button>
-        <button className="user-btn">
-          <img src={User} height={20} />
-        </button>
+        <span>
+          <FontAwesomeIcon className="btn" style={{opacity: toggleBtn.setting ? 1 : 0.7}} onClick={() => handleOnClick("setting")} icon={faSun} size="lg"/>
+        </span>
+        <span>
+          <FontAwesomeIcon className="btn" style={{opacity: toggleBtn.user ? 1 : 0.7}} onClick={() => handleOnClick("user")} icon={faUser} size="lg"/>
+        </span>
       </div>
     </div>
   );
