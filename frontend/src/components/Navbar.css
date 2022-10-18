@@ -3,4 +3,18 @@
   justify-content: space-between;
   position: static;
   width: 100vw;
+  margin-top: 20px;
+}
+
+span {
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+.btn {
+  opacity: .70;
+}
+
+.btn:hover {
+  opacity: 1;
 }
