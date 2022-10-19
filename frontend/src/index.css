@@ -22,9 +22,22 @@
 body {
   margin: 0;
   display: flex;
-  /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
+  overflow: hidden;
+}
+.App {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.work-area {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (prefers-color-scheme: light) {
