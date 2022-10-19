@@ -1,0 +1,57 @@
+.timer {
+  background: #eee;
+  border-radius: 12px;
+  min-height: 300px;
+  padding: 12px;
+  width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* POMODORO TIMER TITLE + MINIMISE BUTTON */
+.timer-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.time {
+  font-size: 60px;
+}
+
+/* STUDY/BREAK */
+.timer-modes {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  min-height: 20%;
+}
+
+.timer-mode-selected {
+  transform: scale(1.1);
+}
+
+/* TIME */
+
+/* START/STOP/RESUME/RESET BUTTONS */
+.timer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* AUTO TRANSITION BUTTON */
+.timer-transition-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* SETTINGS */
