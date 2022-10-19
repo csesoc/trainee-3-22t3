@@ -1,6 +1,7 @@
 import { atom } from "recoil";
+import { ButtonStates } from "./components/NavbarStyled";
 
-const initialStates = {
+const initialStates: ButtonStates = {
   timer: false,
   todolist: false,
   notes: false,

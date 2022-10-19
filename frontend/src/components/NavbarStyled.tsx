@@ -1,6 +1,6 @@
 import { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 
-export interface buttonStates {
+export interface ButtonStates {
   timer: boolean;
   todolist: boolean;
   notes: boolean;
@@ -10,5 +10,5 @@ export interface buttonStates {
 }
 
 export type NavbarButtonProps = FontAwesomeIconProps & {
-  name: keyof buttonStates;
+  name: keyof ButtonStates;
 };
