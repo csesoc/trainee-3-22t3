@@ -1,5 +1,5 @@
-import { atom } from "recoil";
-import { ButtonStates } from "./components/NavbarStyled";
+import { atom } from "recoil"
+import { ButtonStates } from "./components/navbar/NavbarStyled"
 
 const initialStates: ButtonStates = {
   timer: false,
@@ -8,11 +8,11 @@ const initialStates: ButtonStates = {
   youtube: false,
   settings: false,
   user: false,
-};
+}
 
 const navbarButtonState = atom({
   key: "navbarButtonState",
   default: initialStates,
-});
+})
 
-export { navbarButtonState };
+export { navbarButtonState }

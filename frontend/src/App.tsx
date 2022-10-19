@@ -1,18 +1,17 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import { YoutubeEmbed } from "./components/YoutubeEmbed";
+import React from "react"
+import Navbar from "./components/navbar/Navbar"
+import YoutubeEmbed from "./components/youtube/YoutubeEmbed"
+import { Fragment } from "react"
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
+    <Fragment>
       <Navbar />
-      <div className="work-area">
+      <div className='work-area'>
         <YoutubeEmbed />
       </div>
-    </div>
-  );
+    </Fragment>
+  )
 }
 
-export default App;
+export default App
