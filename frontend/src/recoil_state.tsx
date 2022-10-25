@@ -1,7 +1,7 @@
 import { atom } from "recoil";
-import { ButtonStates } from "./components/NavbarStyled";
+import { ButtonStates } from "./components/navbar/NavbarStyled";
 
-const initialStates: ButtonStates = {
+const initialButtonStates: ButtonStates = {
   timer: false,
   todolist: false,
   notes: false,
@@ -12,7 +12,13 @@ const initialStates: ButtonStates = {
 
 const navbarButtonState = atom({
   key: "navbarButtonState",
-  default: initialStates,
+  default: initialButtonStates,
 });
 
-export { navbarButtonState };
+const timerValue = localStorage.getItem("timer-value");
+const currentTimeState = atom({
+  key: "currentTimeState",
+  default: parseInt(timerValue !== null ? timerValue : "0"),
+});
+
+export { navbarButtonState, currentTimeState };

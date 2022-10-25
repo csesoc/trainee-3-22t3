@@ -1,15 +1,3 @@
-.timer {
-  background: #eee;
-  border-radius: 12px;
-  min-height: 300px;
-  padding: 12px;
-  width: 400px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 /* POMODORO TIMER TITLE + MINIMISE BUTTON */
 .timer-heading {
   display: flex;
