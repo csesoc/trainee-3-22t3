@@ -1,0 +1,44 @@
+.theme-container {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    padding: 1.5rem;
+}
+
+.theme-container h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.theme-container h2 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: normal;
+}
+
+.theme-container p {
+    font-size: .75rem;
+    margin: 0;
+}
+
+.font-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: .5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.font-item {
+    border-radius: 10px;
+    padding: 1rem .5rem;
+}
+
+.font-item:hover {
+    background-color: rgba(0, 0, 0, .15);
+    transition: .25s;
+}
