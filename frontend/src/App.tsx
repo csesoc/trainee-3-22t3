@@ -1,6 +1,7 @@
-import React from "react"
-import Navbar from "./components/navbar/Navbar"
-import YoutubeEmbed from "./components/youtube/YoutubeEmbed"
+import React from "react";
+import Navbar from "./components/navbar/Navbar";
+import YoutubeEmbed from "./components/youtube/YoutubeEmbed";
+import ToDoList from "./components/todo/ToDoList";
 import { Fragment } from "react"
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Navbar />
       <div className='work-area'>
         <YoutubeEmbed />
+        <ToDoList />
       </div>
     </Fragment>
   )
