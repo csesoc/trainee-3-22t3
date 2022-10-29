@@ -12,8 +12,10 @@ const Mode = () => {
 
 	const changeMode = (modeString: 'light' | 'dark') => {
 		const currentStyles = { ...mode };
-		currentStyles.theme = modeString;
-		setMode(currentStyles);
+		if (currentStyles.theme !== modeString) {
+			currentStyles.theme = modeString;
+			setMode(currentStyles);
+		}
 	}
 
 	const ModeCatalogue = styled.div`
