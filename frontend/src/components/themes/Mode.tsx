@@ -10,9 +10,9 @@ import { useRecoilState } from "recoil";
 const Mode = () => {
 	const [mode, setMode] = useRecoilState(globalStyles);
 
-	const changeMode = () => {
+	const changeMode = (modeString: 'light' | 'dark') => {
 		const currentStyles = { ...mode };
-		currentStyles.theme = (currentStyles.theme === 'light') ? 'dark' : 'light';
+		currentStyles.theme = modeString;
 		setMode(currentStyles);
 	}
 
@@ -39,11 +39,11 @@ const Mode = () => {
 		<div>
 			<h1>Themes</h1>
 			<ModeCatalogue>
-				<ModeItem onClick={changeMode}>
+				<ModeItem onClick={() => changeMode('dark')}>
 					<FontAwesomeIcon icon={faMoon} />
 					<p>Dark Mode</p>
 				</ModeItem>
-				<ModeItem onClick={changeMode}>
+				<ModeItem onClick={() => changeMode('light')}>
 					<FontAwesomeIcon icon={faStar} />
 					<p>Light Mode</p>
 				</ModeItem>
