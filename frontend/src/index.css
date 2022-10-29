@@ -6,9 +6,7 @@
 
   color-scheme: light dark;
   background-color: Canvas;
-  --background: url(https://images4.alphacoders.com/121/1210584.jpg);
-  /* --background: url(./assets/sample_background.png); */
-  background-image: var(--background);
+  background-image: url(./assets/sample_background.png);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
