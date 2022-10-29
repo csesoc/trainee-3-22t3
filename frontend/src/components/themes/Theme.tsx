@@ -1,5 +1,6 @@
 import "./Theme.css";
 import FontItem from "./FontItem";
+import ThemeItem from "./ThemeItem";
 
 const Theme = () => {
     return (
@@ -15,7 +16,8 @@ const Theme = () => {
             <div className="theme">
                 <h1>Themes</h1>
                 <div className="theme-items">
-
+                    <ThemeItem mode="dark"></ThemeItem>
+                    <ThemeItem mode="light"></ThemeItem>
                 </div>
             </div>
         </div>

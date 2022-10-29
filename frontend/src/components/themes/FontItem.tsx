@@ -4,9 +4,9 @@ interface FontItemProps {
 
 const FontItem = (props: FontItemProps) => {
     const changeFontBody = () => {
-        const body = document.querySelector('html'); 
-        if (body) {
-            body.style.fontFamily = props.fontFamily;
+        const root = document.querySelector<HTMLElement>(':root');
+        if (root) {
+            root.style.fontFamily = props.fontFamily; 
         }
     }
     return (
