@@ -7,6 +7,9 @@ import {
   faSun,
   faUser,
 } from "@fortawesome/free-regular-svg-icons"
+import {
+  faGear
+} from "@fortawesome/free-solid-svg-icons"
 import React from "react"
 import NavbarButton from "./NavbarButton"
 
