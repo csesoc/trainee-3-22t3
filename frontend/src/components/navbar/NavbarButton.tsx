@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useRecoilState } from "recoil"
-import { navbarButtonState } from "../../recoil_state"
-import { NavbarButtonProps } from "./NavbarStyled"
-import { ButtonStates } from "./NavbarStyled"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRecoilState } from "recoil";
+import { navbarButtonState } from "../../recoil_state";
+import { NavbarButtonProps } from "./NavbarStyled";
+import { ButtonStates } from "./NavbarStyled";
 
 const NavbarButton = (props: NavbarButtonProps) => {
   const [toggleBtn, setToggleBtn] = useRecoilState(navbarButtonState);
@@ -10,12 +10,6 @@ const NavbarButton = (props: NavbarButtonProps) => {
   const handleOnClick = (key: keyof ButtonStates) => {
     const existingStates = { ...toggleBtn };
     existingStates[key] = !existingStates[key];
-    
-    // View theme when existingState['settings'] is true
-    const theme = document.querySelector<HTMLElement>('.theme-container');
-    if (!theme) return;
-    theme.style.visibility = existingStates['settings'] ? 'visible' : 'hidden';
-
     setToggleBtn(existingStates);
   }
 

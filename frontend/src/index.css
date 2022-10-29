@@ -1,12 +1,8 @@
 :root {
-  font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 
-  color-scheme: light dark;
-  background-color: Canvas;
-  background-image: url(./assets/sample_background.png);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -26,6 +22,7 @@ body {
   min-height: 100vh;
   overflow: hidden;
 }
+
 .App {
   display: flex;
   flex-flow: column;
@@ -38,10 +35,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.theme-container {
-  visibility: hidden;
 }
 
 @media (prefers-color-scheme: light) {
