@@ -5,12 +5,18 @@ import { NavbarButtonProps } from "./NavbarStyled"
 import { ButtonStates } from "./NavbarStyled"
 
 const NavbarButton = (props: NavbarButtonProps) => {
-  const [toggleBtn, setToggleBtn] = useRecoilState(navbarButtonState)
+  const [toggleBtn, setToggleBtn] = useRecoilState(navbarButtonState);
 
   const handleOnClick = (key: keyof ButtonStates) => {
-    const existingStates = { ...toggleBtn }
-    existingStates[key] = !existingStates[key]
-    setToggleBtn(existingStates)
+    const existingStates = { ...toggleBtn };
+    existingStates[key] = !existingStates[key];
+    
+    // View theme when existingState['settings'] is true
+    const theme = document.querySelector<HTMLElement>('.theme-container');
+    if (!theme) return;
+    theme.style.visibility = existingStates['settings'] ? 'visible' : 'hidden';
+
+    setToggleBtn(existingStates);
   }
 
   return (
