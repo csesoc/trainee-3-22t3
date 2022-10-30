@@ -17,9 +17,9 @@ const navbarButtonState = atom({
 });
 
 interface initialStyleInterface {
-	fontFamily: string,
-	backgroundImage: string,
-	theme: string
+  fontFamily: string,
+  backgroundImage: string,
+  theme: string
 }
 
 const initialStyles: initialStyleInterface = {

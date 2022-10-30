@@ -6,13 +6,12 @@ import Theme from "./Theme";
 
 const Settings = () => {
   const settingState = useRecoilValue(navbarButtonState)['settings'];
-  const settingDiv = (
+  return settingState ? (
     <SettingsDiv>
       <Font />
       <Theme />
     </SettingsDiv>
-  );
-  return settingState ? settingDiv : <></>;
+  ) : <></>;
 }
 
 export default Settings;
