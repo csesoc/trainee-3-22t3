@@ -1,10 +1,10 @@
 import Navbar from "./components/navbar/Navbar";
 import YoutubeEmbed from "./components/youtube/YoutubeEmbed";
 import { Fragment } from "react";
-import Theme from "./components/themes/Theme";
 import { createGlobalStyle } from 'styled-components';
 import { useRecoilValue } from "recoil";
 import { globalStyles } from "./recoil_state";
+import Settings from "./components/themes/Settings";
 
 function App() {
   const globalStylesObject = useRecoilValue(globalStyles);
@@ -22,7 +22,7 @@ function App() {
       <GlobalStyles />
       <Navbar />
       <div className='work-area'>
-        <Theme />
+        <Settings />
         <YoutubeEmbed />
       </div>
     </Fragment>

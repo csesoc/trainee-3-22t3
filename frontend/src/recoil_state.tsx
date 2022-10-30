@@ -1,7 +1,6 @@
 import { atom } from "recoil";
 import { ButtonStates } from "./components/navbar/NavbarStyled";
 import defaultBackground from './assets/sample_background.png';
-import { initialStyleInterface } from "./components/themes/ThemesStyled";
 
 const initialStates: ButtonStates = {
   timer: false,
@@ -16,6 +15,12 @@ const navbarButtonState = atom({
   key: "navbarButtonState",
   default: initialStates,
 });
+
+interface initialStyleInterface {
+	fontFamily: string,
+	backgroundImage: string,
+	theme: string
+}
 
 const initialStyles: initialStyleInterface = {
   fontFamily: 'Arial',
