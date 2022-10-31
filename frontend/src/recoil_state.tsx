@@ -1,5 +1,6 @@
 import { atom } from "recoil";
 import { ButtonStates } from "./components/navbar/NavbarStyled";
+import { TimerMode, TimerStates } from "./components/timer/TimerStyled";
 
 const initialButtonStates: ButtonStates = {
   timer: false,
@@ -10,15 +11,24 @@ const initialButtonStates: ButtonStates = {
   user: false,
 };
 
-const navbarButtonState = atom({
+export const navbarButtonState = atom({
   key: "navbarButtonState",
   default: initialButtonStates,
 });
 
-const timerValue = localStorage.getItem("timer-value");
-const currentTimeState = atom({
-  key: "currentTimeState",
-  default: parseInt(timerValue !== null ? timerValue : "0"),
-});
+const pomodoroDuration = localStorage.getItem("pomodoro-duration");
+const breakDuration = localStorage.getItem("break-duration");
 
-export { navbarButtonState, currentTimeState };
+const timeDefaults: TimerStates = {
+  minutes: 25,
+  seconds: 0,
+  pomodoro: parseInt(pomodoroDuration !== null ? pomodoroDuration : "0"),
+  break: parseInt(breakDuration !== null ? breakDuration : "0"),
+  mode: TimerMode.Study,
+  started: false,
+};
+
+export const currentTimeState = atom({
+  key: "currentTimeState",
+  default: timeDefaults,
+});

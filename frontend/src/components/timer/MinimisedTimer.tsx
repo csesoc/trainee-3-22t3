@@ -1,15 +1,19 @@
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { currentTimeState } from "../../recoil_state";
-import { MiniTimer } from "./TimerStyled";
+import { MiniTimer, TimerMode } from "./TimerStyled";
 
 const MinimisedTimer = () => {
-  const [time, setTime] = useRecoilState(currentTimeState);
+  const currState = useRecoilValue(currentTimeState);
+
+  // const duration =
+  //   currState.mode === TimerMode.Study ? currState.pomodoro : currState.break;
+  const minutes = currState.minutes;
+  const seconds = currState.seconds;
+
   return (
-    <MiniTimer>{`${
-      Math.floor((time - 1) / 60) > 10
-        ? Math.floor(time / 60)
-        : "0" + Math.floor(time / 60)
-    }:${time % 60 > 10 ? time % 60 : "0" + (time % 60)} `}</MiniTimer>
+    <MiniTimer>{`${minutes >= 10 ? minutes : "0" + minutes}:${
+      seconds >= 10 ? seconds : "0" + seconds
+    } `}</MiniTimer>
   );
 };
 

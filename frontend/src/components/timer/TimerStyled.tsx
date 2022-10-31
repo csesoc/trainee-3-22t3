@@ -1,4 +1,3 @@
-import { faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
 const Timer = styled.div`
@@ -19,18 +18,19 @@ const MiniTimer = styled(Timer)`
   min-height: 50px;
   width: 100px;
 `;
-enum TimerState {
-  Initial,
-  Running,
-  Paused,
-}
 
 enum TimerMode {
   Study,
   Break,
 }
 
-// const TimerMode = styled.button<{ isSelected: string }>`
-//   transform: ${(props) => (props.isSelected ? "scale(1.1)" : "scale(1.0)")};
-// `
-export { Timer, TimerState, TimerMode, MiniTimer };
+export interface TimerStates {
+  minutes: number;
+  seconds: number;
+  pomodoro: number;
+  break: number;
+  mode: TimerMode;
+  started: boolean;
+}
+
+export { Timer, TimerMode, MiniTimer };
