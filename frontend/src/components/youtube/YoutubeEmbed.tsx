@@ -4,15 +4,13 @@ import Draggable from "react-draggable";
 import Moveable, { Resizable } from "react-moveable";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { parseISO } from "date-fns";
-
+import { useLayoutEffect, useRef, useState } from "react";
 // var embed = function (url: string) {
 //   var id = url.split("?v=")[1]; //sGbxmsDFVnE
 //   var embedlink = "https://www.youtube.com/embed/" + id; //https://www.youtube.com/embed/sGbxmsDFVnE
 //   document.getElementById("myIframe")!.src = embedlink;
 // };
 let widgetWidth: number;
-let widgetHeight: number;
 const YoutubeEmbed = () => {
   const [target, setTarget] = React.useState<Element>();
   const [frame, setFrame] = React.useState({
@@ -21,11 +19,22 @@ const YoutubeEmbed = () => {
   React.useEffect(() => {
     setTarget(document.querySelector(".target")!);
   }, []);
+
+  const ref = useRef(null);
+  const [width, setWidth] = useState(-1);
+  const [widgetHeight, setWidgetHeight] = useState(-1);
+  const [boolean, setBoolean] = useState(false);
+  useLayoutEffect(() => {
+    if (ref.current) {
+      setWidth(ref.current.offsetWidth);
+      setWidgetHeight(ref.current.offsetHeight);
+    }
+  });
   return (
     <Draggable>
       <div className="container">
         <div className="target">
-          <YoutubeEmbedVideo />
+          <YoutubeEmbedVideo ref={ref} />
         </div>
         <Moveable
           className=""
@@ -37,7 +46,7 @@ const YoutubeEmbed = () => {
           edge={false}
           zoom={1}
           origin={true}
-          padding={{ left: -1, top: -2, right: -2, bottom: -1 }}
+          padding={{ left: 0, top: 0, right: 0, bottom: 0 }}
           onResizeStart={(e) => {
             e.setOrigin(["%", "%"]);
             e.dragStart && e.dragStart.set(frame.translate);
@@ -46,14 +55,8 @@ const YoutubeEmbed = () => {
             const beforeTranslate = e.drag.beforeTranslate;
             frame.translate = beforeTranslate;
             e.target.style.width = `${e.width}px`;
-            if (e.width > 690 && e.width < 1200) {
-              e.target.style.height = `${e.width * (600 / 880)}px`;
-            } else if (e.width > 1580) {
-              e.target.style.width = `${1580}px`;
-            }
-            e.target.style.height = `${e.width * (990 / 1580)}px`;
-            widgetWidth = e.width;
-            widgetHeight = e.height;
+            e.target.style.height = `${widgetHeight}px`;
+            setBoolean((prevState) => !prevState);
             console.log(`(${widgetWidth}, ${widgetHeight})`);
             e.target.style.transform = `translate(${beforeTranslate[0]}px, ${beforeTranslate[1]}px)`;
           }}
@@ -66,30 +69,32 @@ const YoutubeEmbed = () => {
 const YoutubeEmbedVideo = () => {
   return (
     <div className="AMONGUS TRAP REMIX">
-      <div className="url-search">
-        <FontAwesomeIcon
-          className="FontAwesomeIcon"
-          icon={faYoutube}
-          name="Youtube"
-        />
-        <h1>Youtube</h1>
-        <input
-          className="url-input"
-          type="search"
-          placeholder="Enter Link Here"
-        />
-      </div>
-      <div className="youtube-widget">
-        <div className="video-container">
-          <iframe
-            width="640px"
-            height="100%"
-            src="https://www.youtube.com/embed/NvftPSb5Xtw"
-            title="Secret Forest 🍃 Chill Lofi Beats"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+      <div>
+        <div className="url-search">
+          <FontAwesomeIcon
+            className="FontAwesomeIcon"
+            icon={faYoutube}
+            name="Youtube"
+          />
+          <h1>Youtube</h1>
+          <input
+            className="url-input"
+            type="search"
+            placeholder="Enter Link Here"
+          />
+        </div>
+        <div className="youtube-widget">
+          <div className="video-container">
+            <iframe
+              width="640px"
+              height="100%"
+              src="https://www.youtube.com/embed/NvftPSb5Xtw"
+              title="Secret Forest 🍃 Chill Lofi Beats"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>
