@@ -1,8 +1,15 @@
 import React from "react";
 import "./YoutubeEmbed.css";
 import Draggable from "react-draggable";
-import Moveable, { OnResize, OnScale, Resizable } from "react-moveable";
+import Moveable, { Resizable } from "react-moveable";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+var embed = function (url: string) {
+  var id = url.split("?v=")[1]; //sGbxmsDFVnE
+  var embedlink = "https://www.youtube.com/embed/" + id; //https://www.youtube.com/embed/sGbxmsDFVnE
+  document.getElementById("myIframe")!.src = embedlink;
+};
 const YoutubeEmbed = () => {
   const [target, setTarget] = React.useState();
   const [frame, setFrame] = React.useState({
@@ -11,6 +18,8 @@ const YoutubeEmbed = () => {
   React.useEffect(() => {
     setTarget(document.querySelector(".target")!);
   }, []);
+  let widgetWidth;
+  let widgetHeight;
   return (
     <Draggable>
       <div className="container">
@@ -18,15 +27,16 @@ const YoutubeEmbed = () => {
           <YoutubeEmbedVideo />
         </div>
         <Moveable
+          className=""
           target={target}
           resizable={Resizable}
           keepRatio={false}
           throttleResize={1}
-          renderDirections={["nw", "se"]}
+          renderDirections={["nw", "ne", "se", "sw"]}
           edge={false}
           zoom={1}
           origin={true}
-          padding={{ left: 0, top: 0, right: 0, bottom: 0 }}
+          padding={{ left: -1, top: -2, right: -2, bottom: -1 }}
           onResizeStart={(e) => {
             e.setOrigin(["%", "%"]);
             e.dragStart && e.dragStart.set(frame.translate);
@@ -36,6 +46,9 @@ const YoutubeEmbed = () => {
             frame.translate = beforeTranslate;
             e.target.style.width = `${e.width}px`;
             e.target.style.height = `${e.height}px`;
+            widgetWidth = e.width;
+            widgetHeight = e.height;
+            console.log(`(${widgetWidth}, ${widgetHeight})`);
             e.target.style.transform = `translate(${beforeTranslate[0]}px, ${beforeTranslate[1]}px)`;
           }}
         ></Moveable>
@@ -47,12 +60,25 @@ const YoutubeEmbed = () => {
 const YoutubeEmbedVideo = () => {
   return (
     <div>
+      <div className="url-search">
+        <FontAwesomeIcon
+          className="FontAwesomeIcon"
+          icon={faYoutube}
+          name="Youtube"
+        />
+        <h1>Youtube</h1>
+        <input
+          className="url-input"
+          type="search"
+          placeholder="Enter Link Here"
+        />
+      </div>
       <Draggable>
         <div className="youtube-widget">
           <div className="video-container">
             <iframe
-              width="100%"
-              height="100%"
+              width="640px"
+              height="450px"
               src="https://www.youtube.com/embed/NvftPSb5Xtw"
               title="Secret Forest 🍃 Chill Lofi Beats"
               frameBorder="0"
