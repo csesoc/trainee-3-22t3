@@ -5,21 +5,21 @@ import Moveable, { Resizable } from "react-moveable";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-var embed = function (url: string) {
-  var id = url.split("?v=")[1]; //sGbxmsDFVnE
-  var embedlink = "https://www.youtube.com/embed/" + id; //https://www.youtube.com/embed/sGbxmsDFVnE
-  document.getElementById("myIframe")!.src = embedlink;
-};
+// var embed = function (url: string) {
+//   var id = url.split("?v=")[1]; //sGbxmsDFVnE
+//   var embedlink = "https://www.youtube.com/embed/" + id; //https://www.youtube.com/embed/sGbxmsDFVnE
+//   document.getElementById("myIframe")!.src = embedlink;
+// };
+let widgetWidth: number;
+let widgetHeight: number;
 const YoutubeEmbed = () => {
-  const [target, setTarget] = React.useState();
+  const [target, setTarget] = React.useState<Element>();
   const [frame, setFrame] = React.useState({
     translate: [0, 0],
   });
   React.useEffect(() => {
     setTarget(document.querySelector(".target")!);
   }, []);
-  let widgetWidth;
-  let widgetHeight;
   return (
     <Draggable>
       <div className="container">
@@ -28,7 +28,7 @@ const YoutubeEmbed = () => {
         </div>
         <Moveable
           className=""
-          target={target}
+          target={".target"}
           resizable={Resizable}
           keepRatio={false}
           throttleResize={1}
@@ -59,7 +59,7 @@ const YoutubeEmbed = () => {
 
 const YoutubeEmbedVideo = () => {
   return (
-    <div>
+    <div style={{ width: widgetWidth, height: widgetHeight }}>
       <div className="url-search">
         <FontAwesomeIcon
           className="FontAwesomeIcon"

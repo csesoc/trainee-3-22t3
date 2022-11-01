@@ -2,13 +2,13 @@ import Navbar from "./components/navbar/Navbar";
 import YoutubeEmbed from "./components/youtube/YoutubeEmbed";
 import { Fragment } from "react";
 import Settings from "./components/themes/Settings";
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 import { useRecoilValue } from "recoil";
-import { globalStyles } from "./recoil_state";
+import { globalStyles, navbarButtonState } from "./recoil_state";
 
 function App() {
   const currentGlobalStyles = useRecoilValue(globalStyles);
-
+  const navbarButtonStates = useRecoilValue(navbarButtonState);
   const GlobalStyles = createGlobalStyle`
     :root {
       font-family: ${currentGlobalStyles.fontFamily};
@@ -16,17 +16,16 @@ function App() {
       color-scheme: ${currentGlobalStyles.theme} !important
     }
   `;
-  
   return (
     <Fragment>
       <GlobalStyles />
       <Navbar />
-      <div className='work-area'>
+      <div className="work-area">
         <Settings />
-        <YoutubeEmbed />
+        {navbarButtonStates.youtube ? <YoutubeEmbed /> : <></>}
       </div>
     </Fragment>
-  )
+  );
 }
 
 export default App;

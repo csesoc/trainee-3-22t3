@@ -64,22 +64,22 @@
 .moveable-reverse .moveable-direction.moveable-ne,
 .moveable-reverse .moveable-direction.moveable-sw {
   cursor: nwse-resize;
-  border-color: transparent !important;
-  background: transparent !important;
+  /* border-color: transparent !important; */
+  /* background: transparent !important; */
 }
 .moveable-direction.moveable-ne,
 .moveable-direction.moveable-sw,
 .rCSckyn7i.moveable-reverse .moveable-direction.moveable-nw,
 moveable-reverse .moveable-direction.moveable-se {
   cursor: nesw-resize;
-  border-color: transparent !important;
-  background: transparent !important;
+  /* border-color: transparent !important; */
+  /* background: transparent !important; */
 }
 
 .moveable-control.moveable-origin {
   /* display: hidden !important; */
-  border-color: transparent !important;
-  background: transparent !important;
+  /* border-color: transparent !important; */
+  /* background: transparent !important; */
   /* width: 12px; */
   /* height: 12px; */
   /* margin-top: -6px; */
@@ -92,6 +92,6 @@ moveable-reverse .moveable-direction.moveable-se {
   width: 1px;
   height: 1px;
   transform-origin: 0px 0.5px;
-  border-color: transparent !important;
-  background: transparent !important;
+  /* border-color: transparent !important; */
+  /* background: transparent !important; */
 }
