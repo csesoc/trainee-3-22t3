@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SettingsDiv = styled.div`
   position: fixed;
@@ -17,20 +17,20 @@ export const SettingsDiv = styled.div`
 export const FontCatalogueDiv = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: .5rem;
+  grid-gap: 0.5rem;
   text-align: center;
   margin-bottom: 1rem;
 `;
 
 export const FontItemDiv = styled.div<{
-  fontFamily: string
+  fontFamily: string;
 }>`
   border-radius: 10px;
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
   font-family: ${(props) => props.fontFamily};
   &:hover {
-    background-color: rgba(0, 0, 0, .15);
-    transition: .25s;
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: 0.25s;
   }
   h2 {
     font-size: 2rem;
@@ -38,7 +38,7 @@ export const FontItemDiv = styled.div<{
     font-weight: normal;
   }
   p {
-    font-size: .75rem;
+    font-size: 0.75rem;
     margin: 0;
   }
 `;
@@ -51,14 +51,14 @@ export const ThemeCatalogueDiv = styled.div`
 
 export const ThemeItemDiv = styled.div`
   border-radius: 10px;
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
   &:hover {
-    background-color: rgba(0, 0, 0, .15);
-    transition: .25s;
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: 0.25s;
   }
   p {
-    font-size: .75rem;
-  margin: 0;
+    font-size: 0.75rem;
+    margin: 0;
   }
 `;
 
@@ -69,14 +69,15 @@ export const CustomBgForm = styled.form`
   margin-bottom: 1rem;
   h2 {
     text-align: left;
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
-  input[type = "text"] {
+  input[type="text"] {
     border-right: none !important;
     border-width: 1px;
     border-style: solid;
     padding: 10px;
-    &:focus, &:active {
+    &:focus,
+    &:active {
       outline: none;
     }
   }
@@ -87,7 +88,8 @@ export const CustomBgForm = styled.form`
     border-left: none !important;
     padding: 10px;
     color: gray;
-    &:focus, &:active {
+    &:focus,
+    &:active {
       outline: none;
     }
   }

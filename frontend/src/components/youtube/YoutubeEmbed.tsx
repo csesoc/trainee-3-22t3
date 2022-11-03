@@ -77,9 +77,9 @@ const YoutubeEmbed = () => {
 // widget with youtube embed and header search bar
 const YoutubeEmbedVideo = () => {
   const inputRef: any = useRef();
-  const [youtubeVideo, setYoutubeVideo] = useState("");
+  const [youtubeVideoURL, setYoutubeVideoURL] = useState("");
   function handleClick() {
-    setYoutubeVideo(inputRef.current.value);
+    setYoutubeVideoURL(inputRef.current.value);
   }
   return (
     <div>
@@ -93,9 +93,10 @@ const YoutubeEmbedVideo = () => {
         <input
           ref={inputRef}
           className="url-input"
-          type="search"
+          type="text"
+          name="url"
           placeholder="Enter Youtube Link Here"
-          onSubmit={handleClick}
+          onKeyDown={handleClick}
         />
         <button type="submit" className="search-button" onClick={handleClick}>
           Search
@@ -105,7 +106,7 @@ const YoutubeEmbedVideo = () => {
         <div className="video-container">
           <ReactPlayer
             className="react-player"
-            url={youtubeVideo}
+            url={youtubeVideoURL}
             width="100%"
             height="100%"
             controls={true}

@@ -17,33 +17,54 @@
   min-height: 70px;
 }
 .youtube-icon {
-  font-size: 40px;
+  font-size: 50px;
   margin: auto;
   margin-left: 0px;
   margin-right: 10px;
+  margin-top: 7px;
 }
 .url-input {
-  width: 60%;
+  width: 100%;
   height: 30px;
   margin: auto;
-  margin-right: 10px;
+  margin-right: 0px;
   margin-left: 20px;
-  border-radius: 5px;
-  border: 1px solid;
+  /* border-radius: 5px 0px 0px 5px; */
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-right-width: 0px;
+  padding-left: 10px;
+}
+.url-input:focus,
+.url-input:active {
+  outline: none;
 }
 
 .search-button {
   color: Canvas;
-  background-color: black;
-  border-radius: 5px;
-  padding: 10px;
+  background-color: grey;
   margin: auto;
-  margin-left: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
   min-width: 30px;
-  width: 20%;
-  height: fit-content;
-  border: 0px;
+  width: 100%;
+  max-width: 150px;
+  height: 34px;
+  /* border: 0px; */
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-left-width: 0px;
 }
+
+.search-button:hover {
+  background-color: darkgrey;
+}
+
+/* @media (prefers-color-scheme: light) {
+  .search-button {
+    color: white;
+    background-color: black;
+  }
+} */
+
 .youtube-widget {
   display: flex;
   background-color: Canvas;
