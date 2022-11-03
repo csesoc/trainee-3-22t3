@@ -5,8 +5,6 @@
 .target {
   position: absolute;
   min-width: 680px;
-  /* min-height: 495px; */
-  /* width: auto; */
   height: fit-content;
 }
 
@@ -14,11 +12,11 @@
   display: flex;
   background-color: Canvas;
   border-radius: 10px 10px 0px 0px;
-  padding: 5px 20px 0px 20px;
-  min-width: 640px;
+  padding: 5px 25px 0px 25px;
+  min-width: 650px;
   min-height: 70px;
 }
-.FontAwesomeIcon {
+.youtube-icon {
   font-size: 40px;
   margin: auto;
   margin-left: 10px;
@@ -35,7 +33,7 @@
   background-color: Canvas;
   border-radius: 0px 0px 10px 10px;
   padding: 0px 20px 20px 20px;
-  min-width: 640px;
+  min-width: 650px;
   min-height: 400px;
   height: fit-content;
 }
@@ -71,6 +69,7 @@
   margin-left: -7px;
   z-index: 10;
 }
+
 .moveable-line {
   position: absolute;
   width: 1px;
