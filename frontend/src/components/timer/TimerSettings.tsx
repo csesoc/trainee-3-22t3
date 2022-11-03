@@ -2,10 +2,25 @@ import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { currentTimeState } from "../../recoil_state";
 import { TimerMode } from "./TimerStyled";
-import { getDuration } from "./TimerHelpers";
 
 const TimerSettings = () => {
   const [currState, setCurrState] = useRecoilState(currentTimeState);
+
+  const getDuration = (mode?: TimerMode) => {
+    let duration;
+    if (mode !== undefined) {
+      duration =
+        mode === TimerMode.Study ? currState.pomodoro : currState.break;
+    } else {
+      duration =
+        currState.mode === TimerMode.Study
+          ? currState.pomodoro
+          : currState.break;
+    }
+    const minutes = Math.floor(duration);
+    const seconds = Math.floor((duration - Math.floor(duration)) * 60);
+    return [minutes, seconds];
+  };
 
   const updateStates = (props: {
     minutes?: number;
@@ -28,6 +43,7 @@ const TimerSettings = () => {
 
   useEffect(() => {
     const duration = getDuration();
+    console.log("update");
     updateStates({ minutes: duration[0], seconds: duration[1] });
   }, [currState.pomodoro, currState.break]);
 

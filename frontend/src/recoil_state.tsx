@@ -22,10 +22,11 @@ const breakDuration = localStorage.getItem("break-duration");
 const timeDefaults: TimerStates = {
   minutes: 25,
   seconds: 0,
-  pomodoro: parseInt(pomodoroDuration !== null ? pomodoroDuration : "0"),
-  break: parseInt(breakDuration !== null ? breakDuration : "0"),
+  pomodoro: parseInt(pomodoroDuration !== null ? pomodoroDuration : "25"),
+  break: parseInt(breakDuration !== null ? breakDuration : "15"),
   mode: TimerMode.Study,
   started: false,
+  autoTransition: false,
 };
 
 export const currentTimeState = atom({

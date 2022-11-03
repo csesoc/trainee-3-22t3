@@ -4,7 +4,8 @@ import { Timer, TimerMode } from "./TimerStyled";
 import { useRecoilState } from "recoil";
 import { currentTimeState } from "../../recoil_state";
 import TimerSettings from "./TimerSettings";
-import { getDuration } from "./TimerHelpers";
+import { ModeButton } from "./TimerStyled";
+import TimerProgressBar from "./TimerProgressBar";
 
 const PomodoroTimer = () => {
   const [currState, setCurrState] = useRecoilState(currentTimeState);
@@ -18,6 +19,7 @@ const PomodoroTimer = () => {
     break?: number;
     mode?: TimerMode;
     started?: boolean;
+    autoTransition?: boolean;
   }) => {
     const currStates = { ...currState };
     if (props.minutes !== undefined) currStates.minutes = props.minutes;
@@ -26,13 +28,23 @@ const PomodoroTimer = () => {
     if (props.break !== undefined) currStates.break = props.break;
     if (props.mode !== undefined) currStates.mode = props.mode;
     if (props.started !== undefined) currStates.started = props.started;
+    if (props.autoTransition !== undefined)
+      currStates.autoTransition = props.autoTransition;
 
     setCurrState(currStates);
   };
 
   return (
     <>
-      <Timer>
+      <TimerProgressBar
+        progress={currState.minutes * 60 + currState.seconds}
+        duration={
+          currState.mode === TimerMode.Study
+            ? currState.pomodoro
+            : currState.break
+        }
+      />
+      <Timer isStudyMode={currState.mode === TimerMode.Study ? true : false}>
         {/* name + minimise button thing */}
         <div className="timer-heading">
           <div className="timer-title">Pomodoro Timer</div>
@@ -40,10 +52,8 @@ const PomodoroTimer = () => {
         </div>
         {/* study OR break */}
         <div className="timer-modes">
-          <button
-            className={`${
-              currState.mode === TimerMode.Study ? "timer-mode-selected" : ""
-            }`}
+          <ModeButton
+            isSelected={currState.mode === TimerMode.Study}
             onClick={() => {
               updateStates({
                 mode: TimerMode.Study,
@@ -52,11 +62,9 @@ const PomodoroTimer = () => {
             }}
           >
             Study
-          </button>
-          <button
-            className={`${
-              currState.mode === TimerMode.Break ? "timer-mode-selected" : ""
-            }`}
+          </ModeButton>
+          <ModeButton
+            isSelected={currState.mode === TimerMode.Break}
             onClick={() => {
               updateStates({
                 mode: TimerMode.Break,
@@ -65,7 +73,7 @@ const PomodoroTimer = () => {
             }}
           >
             Break
-          </button>
+          </ModeButton>
         </div>
         {/* the actual timer */}
         <div className="time">
@@ -89,8 +97,11 @@ const PomodoroTimer = () => {
           <button
             onClick={() =>
               updateStates({
-                minutes: getDuration()[0],
-                seconds: getDuration()[1],
+                minutes:
+                  currState.mode === TimerMode.Study
+                    ? currState.pomodoro
+                    : currState.break,
+                seconds: 0,
                 started: false,
               })
             }
@@ -100,7 +111,16 @@ const PomodoroTimer = () => {
         </div>
         {/* auto transition between study/breaks */}
         <div className="timer-transition-button">
-          <div>Auto-Transition</div>
+          <label>
+            Auto-transition
+            <input
+              type="checkbox"
+              style={{ float: "left", paddingTop: "5px" }}
+              onChange={() =>
+                updateStates({ autoTransition: !currState.autoTransition })
+              }
+            />
+          </label>
           <button onClick={() => setOpenSettings(!openSettings)}>
             Settings
           </button>
