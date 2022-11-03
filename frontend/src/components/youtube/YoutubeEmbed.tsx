@@ -5,6 +5,7 @@ import Moveable, { Resizable } from "react-moveable";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLayoutEffect, useRef, useState } from "react";
+import ReactPlayer from "react-player/youtube";
 
 const YoutubeEmbed = () => {
   // updates resized object position and other parameters
@@ -75,12 +76,11 @@ const YoutubeEmbed = () => {
 
 // widget with youtube embed and header search bar
 const YoutubeEmbedVideo = () => {
-  // var embed = function (url: string) {
-  //   var id = url.split("?v=")[1]; //sGbxmsDFVnE
-  //   var embedLink = "https://www.youtube.com/embed/" + id; //https://www.youtube.com/embed/sGbxmsDFVnE
-  //   document.getElementById("myIframe")!.src = embedLink;
-  // };
-
+  const inputRef: any = useRef();
+  const [youtubeVideo, setYoutubeVideo] = useState("");
+  function handleClick() {
+    setYoutubeVideo(inputRef.current.value);
+  }
   return (
     <div>
       <div className="url-search">
@@ -91,23 +91,26 @@ const YoutubeEmbedVideo = () => {
         />
         <h1>Youtube</h1>
         <input
+          ref={inputRef}
           className="url-input"
           type="search"
-          placeholder="Enter Link Here"
+          placeholder="Enter Youtube Link Here"
+          onSubmit={handleClick}
         />
+        <button type="submit" className="search-button" onClick={handleClick}>
+          Search
+        </button>
       </div>
       <div className="youtube-widget">
         <div className="video-container">
-          <iframe
-            id="myIframe"
-            width="650px"
+          <ReactPlayer
+            className="react-player"
+            url={youtubeVideo}
+            width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/NvftPSb5Xtw"
-            title="Secret Forest 🍃 Chill Lofi Beats"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+            controls={true}
+            playbackRate={1}
+          />
         </div>
       </div>
     </div>

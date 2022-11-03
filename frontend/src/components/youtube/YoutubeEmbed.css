@@ -19,15 +19,31 @@
 .youtube-icon {
   font-size: 40px;
   margin: auto;
-  margin-left: 10px;
+  margin-left: 0px;
   margin-right: 10px;
 }
 .url-input {
   width: 60%;
   height: 30px;
   margin: auto;
+  margin-right: 10px;
+  margin-left: 20px;
+  border-radius: 5px;
+  border: 1px solid;
 }
 
+.search-button {
+  color: Canvas;
+  background-color: black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: auto;
+  margin-left: 10px;
+  min-width: 30px;
+  width: 20%;
+  height: fit-content;
+  border: 0px;
+}
 .youtube-widget {
   display: flex;
   background-color: Canvas;
@@ -55,6 +71,12 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .moveable-control {
