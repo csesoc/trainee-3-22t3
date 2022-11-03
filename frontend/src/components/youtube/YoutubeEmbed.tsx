@@ -6,6 +6,7 @@ import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLayoutEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player/youtube";
+import { CustomBgForm } from "../themes/SettingsStyled";
 
 const YoutubeEmbed = () => {
   // updates resized object position and other parameters

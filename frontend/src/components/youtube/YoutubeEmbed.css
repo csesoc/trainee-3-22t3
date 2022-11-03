@@ -29,7 +29,6 @@
   margin: auto;
   margin-right: 0px;
   margin-left: 20px;
-  /* border-radius: 5px 0px 0px 5px; */
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-right-width: 0px;
   padding-left: 10px;
@@ -49,7 +48,6 @@
   width: 100%;
   max-width: 150px;
   height: 34px;
-  /* border: 0px; */
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-left-width: 0px;
 }
