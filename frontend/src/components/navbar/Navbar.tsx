@@ -1,4 +1,4 @@
-import "./Navbar.css"
+import "./Navbar.css";
 import {
   faCirclePlay,
   faClock,
@@ -6,9 +6,8 @@ import {
   faStickyNote,
   faSun,
   faUser,
-} from "@fortawesome/free-regular-svg-icons"
-import React from "react"
-import NavbarButton from "./NavbarButton"
+} from "@fortawesome/free-regular-svg-icons";
+import NavbarButton from "./NavbarButton";
 
 const Navbar = () => {
   return (
