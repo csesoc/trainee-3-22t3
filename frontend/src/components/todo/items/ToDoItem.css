@@ -1,0 +1,68 @@
+.todoItem {
+    margin-bottom: 10px;
+}
+
+.textBox {
+    border: none;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.checkbox {
+    background-color: #fff !important;
+}
+
+.textBox:focus{
+    border: none;
+    outline:none;
+}
+
+.delete-button {
+    opacity: 0%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    float: right;
+    margin-left: 125px;
+
+    transition: 0.3s;
+}
+
+.delete-button:hover {
+    color: red;
+    transition: 0.2s;
+}
+
+.item {
+    display:flex;
+    align-items:center;
+}
+
+.item:hover .delete-button{
+    opacity: 100%;
+    transition: 0.3s;
+    align-self: right;
+}
+
+.add-button {
+    opacity: 0.7;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+
+    position: absolute;
+    bottom: 50px;
+}
+
+.completed{
+    opacity: 0.7;
+    font-size:smaller;
+    position: absolute;
+    bottom: 0;
+}
