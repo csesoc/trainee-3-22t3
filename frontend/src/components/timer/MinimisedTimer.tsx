@@ -11,7 +11,9 @@ const MinimisedTimer = () => {
   const seconds = currState.seconds;
 
   return (
-    <MiniTimer>{`${minutes >= 10 ? minutes : "0" + minutes}:${
+    <MiniTimer
+      isStudyMode={currState.mode === TimerMode.Study ? true : false}
+    >{`${minutes >= 10 ? minutes : "0" + minutes}:${
       seconds >= 10 ? seconds : "0" + seconds
     } `}</MiniTimer>
   );

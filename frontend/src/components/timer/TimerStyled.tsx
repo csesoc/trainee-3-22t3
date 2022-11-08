@@ -17,7 +17,10 @@ const Timer = styled.div<{ isStudyMode: boolean }>`
 
 const MiniTimer = styled(Timer)`
   min-height: 50px;
-  width: 100px;
+  width: 5vw;
+  display: flex;
+  justify-content: center;
+  font-size: 2vw;
 `;
 
 export const ModeButton = styled.button<{ isSelected: boolean }>`
