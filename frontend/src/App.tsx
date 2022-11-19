@@ -5,6 +5,7 @@ import Settings from "./components/themes/Settings";
 import { createGlobalStyle } from 'styled-components';
 import { useRecoilValue } from "recoil";
 import { globalStyles } from "./recoil_state";
+import Notes from "./components/notes/Notes";
 
 function App() {
   const currentGlobalStyles = useRecoilValue(globalStyles);
@@ -24,6 +25,7 @@ function App() {
       <div className='work-area'>
         <Settings />
         <YoutubeEmbed />
+        <Notes />
       </div>
     </Fragment>
   )
