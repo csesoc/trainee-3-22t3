@@ -6,6 +6,7 @@ import { createGlobalStyle } from "styled-components";
 import { useRecoilValue } from "recoil";
 import { globalStyles, navbarButtonState } from "./recoil_state";
 
+
 function App() {
   const currentGlobalStyles = useRecoilValue(globalStyles);
   const navbarButtonStates = useRecoilValue(navbarButtonState);

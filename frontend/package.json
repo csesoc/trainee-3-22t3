@@ -17,6 +17,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
+    "react-lite-youtube-embed": "^2.3.52",
     "react-moveable": "^0.40.0",
     "react-player": "^2.11.0",
     "recoil": "^0.7.6",

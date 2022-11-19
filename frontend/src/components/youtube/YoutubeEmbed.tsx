@@ -5,21 +5,18 @@ import Moveable, { Resizable } from "react-moveable";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLayoutEffect, useRef, useState } from "react";
-import ReactPlayer from "react-player/youtube";
-import { CustomBgForm } from "../themes/SettingsStyled";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import { faWindowMinimize } from "@fortawesome/free-regular-svg-icons";
 
 const YoutubeEmbed = () => {
-  // updates resized object position and other parameters
-  const [target, setTarget] = React.useState<Element>();
-  // a var of type any to tell typescript to shut up
+  const [, setTarget] = React.useState<Element>();
   const refVar: any = "";
   const ref: any = useRef(refVar);
-  // gets widget width and height for resize handle
-  const [width, setWidth] = useState(-1);
+  const [, setWidth] = useState(-1);
   const [widgetHeight, setWidgetHeight] = useState(-1);
-  // sets bool to check if width has been updated
-  const [boolean, setBoolean] = useState(false);
-  const [frame, setFrame] = React.useState({
+  const [, setBoolean] = useState(false);
+  const [frame,] = React.useState({
     translate: [0, 0],
   });
   React.useEffect(() => {
@@ -79,8 +76,19 @@ const YoutubeEmbed = () => {
 const YoutubeEmbedVideo = () => {
   const inputRef: any = useRef();
   const [youtubeVideoURL, setYoutubeVideoURL] = useState("");
+  function youtube_parser(url: string): string | false {
+    var regExp =
+      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var match = url.match(regExp);
+    return match && match[7].length == 11 ? match[7] : false;
+  }
   function handleClick() {
-    setYoutubeVideoURL(inputRef.current.value);
+    const url: string | false = youtube_parser(String(inputRef.current.value));
+    if (url === false) {
+      console.log(`YOU MONKEY LEARN TO COPY A YT LINK PROPERLY`);
+      return;
+    }
+    setYoutubeVideoURL(url);
   }
   return (
     <div>
@@ -102,19 +110,15 @@ const YoutubeEmbedVideo = () => {
         <button type="submit" className="search-button" onClick={handleClick}>
           Search
         </button>
-      </div>
-      <div className="youtube-widget">
-        <div className="video-container">
-          <ReactPlayer
-            className="react-player"
-            url={youtubeVideoURL}
-            width="100%"
-            height="100%"
-            controls={true}
-            playbackRate={1}
+        <button type="submit" className="minimize-button">
+          <FontAwesomeIcon
+            className="minimize-icon"
+            icon={faWindowMinimize}
+            name="minimize"
           />
-        </div>
+        </button>
       </div>
+      <LiteYouTubeEmbed id={youtubeVideoURL} title="Are you really studying?" />
     </div>
   );
 };

@@ -51,9 +51,24 @@
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-left-width: 0px;
 }
-
 .search-button:hover {
   background-color: darkgrey;
+}
+
+.minimize-button {
+  display: block;
+  border: 0px transparent;
+  background-color: transparent;
+  margin: auto;
+  margin-top: 5px; 
+  margin-bottom: 5px; 
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.minimize-icon {
+  font-size: 30px;
 }
 
 /* @media (prefers-color-scheme: light) {
@@ -71,31 +86,6 @@
   min-width: 650px;
   min-height: 400px;
   height: fit-content;
-}
-
-.video-container {
-  width: 100%;
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 100%;
-  overflow: hidden;
-}
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.react-player {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .moveable-control {
