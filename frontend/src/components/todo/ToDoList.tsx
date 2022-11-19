@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import TodoItem from "./items/ToDoItem";
-import Draggable from "react-draggable"
-import "./ToDoList.css"
+import Draggable from "react-draggable";
+import "./ToDoList.css";
+import { reorder, reorderImmutable, reorderFromTo, reorderFromToImmutable } from 'react-reorder';
 
 interface item {
     id: number,
@@ -41,12 +42,12 @@ function ToDoList() {
             <div className='todoList'>
                 <div className='todoContent' draggable="false">   
                     <h2>To-do List</h2>
-                    <div className='todos'>   
-                        {todos.map((item: item) => (
-                        <TodoItem todoId={item.id} deleteTodo={deleteTodo} 
-                            todos={todos} setTodos={setTodos} />
-                        ))}
-                    </div>
+                        <div className='todos'>   
+                            {todos.map((item: item) => (
+                            <TodoItem todoId={item.id} deleteTodo={deleteTodo} 
+                                todos={todos} setTodos={setTodos} />
+                            ))}
+                        </div>
                 </div>
 
                 <div>   
