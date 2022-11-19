@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import TodoItem from "./items/ToDoItem";
 import Draggable from "react-draggable";
 import "./ToDoList.css";
-import { reorder, reorderImmutable, reorderFromTo, reorderFromToImmutable } from 'react-reorder';
 
 interface item {
     id: number,
