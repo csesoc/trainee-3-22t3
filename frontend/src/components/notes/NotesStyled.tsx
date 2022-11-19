@@ -5,13 +5,28 @@ import 'react-quill/dist/quill.snow.css';
 export const NotesComponent = styled.div`
   position: absolute;
   background-color: Canvas;
+  min-width: 250px;
+  width: min-content;
+  max-width: 100vw;
+  min-height: 150px;
+  height: min-content;
+  max-height: 100vh;
 `;
-
-export const Note = styled(ReactQuill)`
+  
+  export const Note = styled(ReactQuill)`
   background-color: Canvas;
-  width: 500px;
+  span {
+    margin: 0;
+  }
+  .ql-container .ql-snow {
+    width: auto;
+    height: auto;
+  }
   .ql-editor {
-    height: 250px;
+    resize: both;
+    min-width: 250px;
+    height: 100px;
+    flex-grow: 0;
   }
 `;
   

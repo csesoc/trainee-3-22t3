@@ -31,6 +31,20 @@ const Notes = () => {
         value={value} 
         onChange={setValue}
         placeholder="Start typing to add a note..."
+        modules={{
+          toolbar: [
+            [{ 'header': [1, 2, false] }],
+            ['bold', 'italic', 'underline','strike', 'blockquote', 'code'],
+            [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+            ['link', 'image']
+          ]
+        }}
+        formats={[
+          'header',
+          'bold', 'italic', 'underline', 'strike', 'blockquote', 'code',
+          'list', 'bullet', 'indent',
+          'link', 'image'
+        ]}
       />
     </NotesComponent>
   ) : <></>;
