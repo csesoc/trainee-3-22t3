@@ -48,7 +48,7 @@ const Youtube = () => {
     </ YoutubeComponent>
   );
 };
-
+export default Youtube;
 // const YoutubeEmbed = () => {
 //   const [, setTarget] = React.useState<Element>();
 //   const refVar: any = "";
@@ -111,5 +111,3 @@ const Youtube = () => {
 //     </Draggable>
 //   );
 // };
-
-export default Youtube;
