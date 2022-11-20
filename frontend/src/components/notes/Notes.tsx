@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import { NotesComponent, Note } from "./NotesStyled";
 import { ButtonStates } from "../navbar/NavbarStyled";
 import Header from "../header/Header";
-import Draggable from "react-draggable";
 
 const Notes = () => {
   const [toggleBtn, setToggleBtn] = useRecoilState(navbarButtonState);

@@ -5,12 +5,8 @@ import 'react-quill/dist/quill.snow.css';
 export const NotesComponent = styled.div`
   position: absolute;
   background-color: Canvas;
-  min-width: 250px;
   width: min-content;
-  max-width: 100vw;
-  min-height: 150px;
   height: min-content;
-  max-height: 100vh;
 `;
   
   export const Note = styled(ReactQuill)`
@@ -25,8 +21,8 @@ export const NotesComponent = styled.div`
   .ql-editor {
     resize: both;
     min-width: 250px;
+    min-height: 100px;
     height: 100px;
-    flex-grow: 0;
   }
 `;
   
