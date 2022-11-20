@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { navbarButtonState } from "../../recoil_state";
+import { useRecoilState } from "recoil";
 import { faWindowMinimize } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useCallback, useEffect } from "react";
@@ -25,16 +27,20 @@ const HeaderStyled = styled.div<{ pressed: boolean }>`
   cursor: ${(props) => (props.pressed) ? "grabbing" : "grab"};
 `;
 
-type handleClose = (key: keyof ButtonStates) => void;
-
 interface HeaderProps {
   heading: string,
-  name: keyof ButtonStates,
-  handleClose: handleClose
+  name: keyof ButtonStates
 }
 
 const Header = forwardRef((props: HeaderProps, ref: any) => {
+  const [toggleBtn, setToggleBtn] = useRecoilState(navbarButtonState);
   const [pressed, setPressed] = useState(false);
+
+  const handleOnClick = (key: keyof ButtonStates) => {
+    const existingStates = { ...toggleBtn };
+    existingStates[key] = !existingStates[key];
+    setToggleBtn(existingStates);
+  }
   
   const handleOnMouseDown = useCallback(() => {
     setPressed(true);
@@ -78,7 +84,7 @@ const Header = forwardRef((props: HeaderProps, ref: any) => {
   return (
     <HeaderStyled onMouseDown={handleOnMouseDown} pressed={pressed}>
       <h1>{props.heading}</h1>
-      <span onClick={() => props.handleClose(props.name)}>
+      <span onClick={() => handleOnClick(props.name)}>
         <FontAwesomeIcon icon={faWindowMinimize} />
       </span>
     </HeaderStyled>
