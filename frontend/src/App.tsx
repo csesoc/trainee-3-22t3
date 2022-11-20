@@ -5,6 +5,7 @@ import Settings from "./components/themes/Settings";
 import { createGlobalStyle } from "styled-components";
 import { useRecoilValue } from "recoil";
 import { globalStyles, navbarButtonState } from "./recoil_state";
+import Youtube from "./components/youtube/YoutubeEmbed";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <Navbar />
       <div className="work-area">
         <Settings />
-        {navbarButtonStates.youtube ? <YoutubeEmbed /> : <></>}
+        {navbarButtonStates.youtube ? <Youtube /> : <></>}
       </div>
     </Fragment>
   );
