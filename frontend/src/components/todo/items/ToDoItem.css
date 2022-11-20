@@ -25,9 +25,6 @@
     cursor: pointer;
     overflow: hidden;
     outline: none;
-    float: right;
-    margin-left: 125px;
-
     transition: 0.3s;
 }
 
@@ -38,10 +35,15 @@
 
 .item {
     display:flex;
-    align-items:center;
+    border-radius:5px;
 }
 
-.item:hover .delete-button{
+.item:hover {
+    background-color: #F3F3F3;
+    transition: 0.2s;
+}
+
+.item:hover .delete-button {
     opacity: 100%;
     transition: 0.3s;
     align-self: right;

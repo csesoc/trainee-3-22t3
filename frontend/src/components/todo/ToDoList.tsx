@@ -37,30 +37,30 @@ function ToDoList() {
     };
 
     return (
-        <Draggable>
-            <div className='todoList'>
-                <div className='todoContent' draggable="false">   
-                    <h2>To-do List</h2>
-                        <div className='todos'>   
-                            {todos.map((item: item) => (
-                            <TodoItem todoId={item.id} deleteTodo={deleteTodo} 
-                                todos={todos} setTodos={setTodos} />
-                            ))}
-                        </div>
-                </div>
-
-                <div>   
-                    <button className='add-button' onClick={addTodos}>
-                        <div>   
-                            + Add your tasks..
-                        </div>
-                    </button>
-                </div>
-
-                <p className='completed'>
-                    Completed: {todos.filter(todo => todo.isDone).length} out of {todos.length}
-                </p>
+        <Draggable handle="#handle">
+        <div className='todoList'>
+            <div className='todoContent'>   
+                <span id="handle"><h2>To-do List</h2></span>
+                    <div className='todos'>   
+                        {todos.map((item: item) => (
+                        <TodoItem todoId={item.id} deleteTodo={deleteTodo} 
+                            todos={todos} setTodos={setTodos} />
+                        ))}
+                    </div>
             </div>
+
+            <div>   
+                <button className='add-button' onClick={addTodos}>
+                    <div>   
+                        + Add your tasks..
+                    </div>
+                </button>
+            </div>
+
+            <p className='completed'>
+                Completed: {todos.filter(todo => todo.isDone).length} out of {todos.length}
+            </p>
+        </div>
         </Draggable>
     );
 }
