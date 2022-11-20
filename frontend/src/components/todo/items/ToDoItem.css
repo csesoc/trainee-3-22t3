@@ -68,3 +68,12 @@
     position: absolute;
     bottom: 0;
 }
+
+.itemLeft {
+    float: left;
+}
+
+.itemsRight {
+    margin-left: auto; 
+    margin-right: 0;
+}

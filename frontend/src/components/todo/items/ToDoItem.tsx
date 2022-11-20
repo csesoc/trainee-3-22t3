@@ -31,11 +31,17 @@ const ToDoItem = (props: ToDoItemObject) => {
     return (
         <div className = 'todoItem'>
             <div className = 'item'>
-                <input type="checkbox" onChange={handleChecked}/>
-                <input className = 'textBox' style={{ opacity: startedTyping ? 1 : 0.7}} type="text" value={todo.desc} onChange={handleChange} />
-                <button className="delete-button" onClick={() => props.deleteTodo(props.todoId)}>
-                    X
-                </button>
+                <div className = 'itemLeft'>   
+                    <input type="checkbox" onChange={handleChecked}/>
+                    <input className = 'textBox' style={{ opacity: startedTyping ? 1 : 0.7}} type="text" value={todo.desc} onChange={handleChange} />
+                </div>
+                  
+                <div className = 'itemsRight'>   
+                    <button className="delete-button" onClick={() => props.deleteTodo(props.todoId)}>
+                        X
+                    </button>
+                </div>
+
             </div>
         </div>
     );
