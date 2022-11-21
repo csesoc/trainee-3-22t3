@@ -72,19 +72,25 @@ export const CustomBgForm = styled.form`
     font-size: .75rem;
   }
   input[type = "text"] {
-    border-right: none !important;
+    border-right: transparent !important;
+    border-color: CanvasText;
     border-width: 1px;
     border-style: solid;
     padding: 10px;
+    background-color: transparent;
     &:focus, &:active {
       outline: none;
+    }
+    &::placeholder {
+      color: CanvasText;
     }
   }
   button {
     background-color: transparent;
+    border-left: transparent !important;
+    border-color: CanvasText;
     border-width: 1px;
     border-style: solid;
-    border-left: none !important;
     padding: 10px;
     color: gray;
     &:focus, &:active {
