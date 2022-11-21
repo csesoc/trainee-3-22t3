@@ -17,7 +17,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("ur mom");
+  res.send("hi");
 });
 
 // Use all routes
