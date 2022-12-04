@@ -13,9 +13,11 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@skeletonlabs/skeleton": "^0.76.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
+    "react-quill": "^2.0.0",
     "react-reorder": "^3.0.0-alpha.7",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6"

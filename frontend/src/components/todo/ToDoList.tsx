@@ -1,7 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TodoItem from "./items/ToDoItem";
 import Draggable from "react-draggable";
 import "./ToDoList.css";
+import Header from "../header/Header";
+import { useRecoilValue } from "recoil";
+import { navbarButtonState } from "../../recoil_state";
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 interface item {
     id: number,
@@ -11,6 +15,9 @@ interface item {
 
 function ToDoList() {
     const [todos, setTodos] = useState(Array<item>);
+    const divRef = useRef<HTMLDivElement>(null);
+
+    const todolistState = useRecoilValue(navbarButtonState)['todolist'];
 
     useEffect(() => {
         setTodos([{ 
@@ -36,17 +43,19 @@ function ToDoList() {
         setTodos(newTodos);
     };
 
-    return (
-        <Draggable handle="#handle">
-        <div className='todoList'>
-            <div className='todoContent'>   
-                <span id="handle"><h2>To-do List</h2></span>
-                    <div className='todos'>   
-                        {todos.map((item: item) => (
-                        <TodoItem todoId={item.id} deleteTodo={deleteTodo} 
-                            todos={todos} setTodos={setTodos} />
-                        ))}
-                    </div>
+    return todolistState ? (
+        <div className='todoList' ref = {divRef}>
+            <Header 
+            heading="To-do List"
+            name="todolist"
+            ref={divRef}
+            />
+
+            <div className='todos'>   
+                {todos.map((item: item) => (
+                <TodoItem todoId={item.id} deleteTodo={deleteTodo} 
+                    todos={todos} setTodos={setTodos} />
+                ))}
             </div>
 
             <div>   
@@ -55,14 +64,16 @@ function ToDoList() {
                         + Add your tasks..
                     </div>
                 </button>
-            </div>
 
-            <p className='completed'>
-                Completed: {todos.filter(todo => todo.isDone).length} out of {todos.length}
-            </p>
+                <div className = 'completed'>
+                    <p>
+                        Completed: {todos.filter(todo => todo.isDone).length} out of {todos.length}
+                    </p>
+                    <ProgressBar now={todos.filter(todo => todo.isDone).length} />
+                </div>
+            </div>
         </div>
-        </Draggable>
-    );
+    ) : <></>;
 }
 
 export default ToDoList;

@@ -3,7 +3,7 @@
     border-radius: 10px;
     padding: 0px 20px 5px 20px;
     min-width: 350px;
-    min-height: 200px;
+    min-height: 350px;
     height: 500px;
     width: 350px;
     resize: both;
@@ -46,15 +46,19 @@
     scroll-margin: 50px 0 0 50px;
   }
 
-.todoContent {
-    overflow-y: auto;
-    display: flex;
-    flex-flow: column wrap;
-}
 
 .todos {
     flex:1;
     background-color:white;
     overflow-y: scroll;
-    max-height: 335px;
+    flex-flow: column wrap;
+    height: fit-content;
+}
+
+.completed{
+  opacity: 0.7;
+  font-size:smaller;
+  position: absolute;
+  bottom: 0;
+  display: flex;
 }

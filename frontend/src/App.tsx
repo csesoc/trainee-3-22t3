@@ -6,6 +6,7 @@ import { createGlobalStyle } from 'styled-components';
 import { useRecoilValue } from "recoil";
 import { globalStyles } from "./recoil_state";
 import ToDoList from "./components/todo/ToDoList";
+import Notes from "./components/notes/Notes";
 
 function App() {
   const currentGlobalStyles = useRecoilValue(globalStyles);
@@ -26,6 +27,7 @@ function App() {
         <Settings />
         <YoutubeEmbed />
         <ToDoList/>
+        <Notes />
       </div>
     </Fragment>
   )

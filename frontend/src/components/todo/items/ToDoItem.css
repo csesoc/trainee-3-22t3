@@ -62,13 +62,6 @@
     bottom: 50px;
 }
 
-.completed{
-    opacity: 0.7;
-    font-size:smaller;
-    position: absolute;
-    bottom: 0;
-}
-
 .itemLeft {
     float: left;
 }
