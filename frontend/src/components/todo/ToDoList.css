@@ -48,11 +48,9 @@
 
 
 .todos {
-    flex:1;
-    background-color:white;
-    overflow-y: scroll;
-    flex-flow: column wrap;
-    height: fit-content;
+  position: relative;
+  height: calc(100% - 125px);
+  overflow-y: scroll;
 }
 
 .completed{
