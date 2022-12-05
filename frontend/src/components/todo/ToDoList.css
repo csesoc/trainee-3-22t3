@@ -49,7 +49,7 @@
 
 .todos {
   position: relative;
-  height: calc(100% - 125px);
+  height: calc(100% - 140px);
   overflow-y: scroll;
 }
 
