@@ -9,7 +9,7 @@
 }
 
 .checkbox {
-    background-color: #fff !important;
+    background-color: transparent;
 }
 
 .textBox:focus{
@@ -40,6 +40,7 @@
 
 .item:hover {
     background-color: #F3F3F3;
+    -webkit-text-fill-color: black;
     transition: 0.2s;
 }
 
@@ -64,6 +65,8 @@
 
 .itemLeft {
     float: left;
+    display: flex;
+    justify-content: center;
 }
 
 .itemsRight {
