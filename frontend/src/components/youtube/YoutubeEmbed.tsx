@@ -1,6 +1,9 @@
-import React from "react";
-import Draggable from "react-draggable";
-import Moveable, { InitialMoveable, Resizable } from "react-moveable";
+// import React from "react";
+// import Draggable from "react-draggable";
+// import Moveable, { InitialMoveable, Resizable } from "react-moveable";
+
+import React, { useState } from "react";
+import { Resizable } from "re-resizable";
 
 import { useRef } from "react";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
@@ -24,28 +27,33 @@ const Youtube = () => {
     setToggleBtn(existingStates);
   };
 
-  return youtubeState && (videoId !== "") ? (
-    <YoutubeComponent ref={divRef}>
-      <YoutubeHeader
-        heading="youtube"
-        ref={divRef}
-        name="youtube"
-        handleClose={handleOnClick}
-      />
-      <LiteYouTubeEmbed
-        id={videoId}
-        title="Are you really studying?"
-      />
+  return youtubeState && videoId !== "" ? (
+    <YoutubeComponent ref={divRef} className="videoTrue">
+      <Resizable
+        minWidth="videoWidth"
+        minHeight="videoHeight"
+        lockAspectRatio={true}
+      >
+        <YoutubeHeader
+          heading="youtube"
+          ref={divRef}
+          name="youtube"
+          handleClose={handleOnClick}
+        />
+        <LiteYouTubeEmbed id={videoId} title="Are you really studying?" />
+      </Resizable>
     </YoutubeComponent>
   ) : (
-    <YoutubeComponent ref={divRef} style={{height: "450px", width: "682px"}}>
-      <YoutubeHeader
-        heading="youtube"
-        ref={divRef}
-        name="youtube"
-        handleClose={handleOnClick}
-      />
-    </ YoutubeComponent>
+    <YoutubeComponent ref={divRef}>
+      <Resizable minWidth="682px" minHeight="450px" lockAspectRatio={true}>
+        <YoutubeHeader
+          heading="youtube"
+          ref={divRef}
+          name="youtube"
+          handleClose={handleOnClick}
+        />
+      </Resizable>
+    </YoutubeComponent>
   );
 };
 export default Youtube;
