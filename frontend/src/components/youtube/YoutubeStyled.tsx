@@ -11,7 +11,6 @@ export const YoutubeComponent = styled.div`
 `;
 export const videoTrue = styled.div`
   position: absolute;
-
   min-width: 682px;
   width: auto;
   height: auto;

@@ -1,8 +1,6 @@
 // import React from "react";
 // import Draggable from "react-draggable";
 // import Moveable, { InitialMoveable, Resizable } from "react-moveable";
-
-import React, { useState } from "react";
 import { Resizable } from "re-resizable";
 
 import { useRef } from "react";
@@ -28,16 +26,21 @@ const Youtube = () => {
   };
 
   return (
-    <YoutubeComponent ref={divRef} className="videoTrue">
+    <YoutubeComponent
+      ref={divRef}
+      className={
+        youtubeState && videoId !== "" ? "videoTrue" : "YoutubeComponent"
+      }
+    >
       <YoutubeHeader
         heading="youtube"
         ref={divRef}
         name="youtube"
         handleClose={handleOnClick}
       />
-      {/* <Resizable
+      <Resizable
         minWidth="682px"
-        minHeight={youtubeState && videoId !== "" ? "0px" : "380px"}
+        minHeight="380px"
         lockAspectRatio={true}
         enable={{
           top: false,
@@ -49,57 +52,13 @@ const Youtube = () => {
           bottomLeft: false,
           topLeft: false,
         }}
-        maxWidth="1600px"
-      > */}
-      {youtubeState && videoId !== "" && (
-        <LiteYouTubeEmbed id={videoId} title="Are you really studying?" />
-      )}
-      {/* </Resizable> */}
+        maxHeight="1000px"
+      >
+        {youtubeState && videoId !== "" && (
+          <LiteYouTubeEmbed id={videoId} title="Are you really studying?" />
+        )}
+      </Resizable>
     </YoutubeComponent>
   );
 };
-//   return youtubeState && videoId !== "" ? (
-//     <YoutubeComponent ref={divRef} className="videoTrue">
-//       <YoutubeHeader
-//         heading="youtube"
-//         ref={divRef}
-//         name="youtube"
-//         handleClose={handleOnClick}
-//       />
-//       <Resizable
-//         minWidth="682px"
-//         lockAspectRatio={true}
-//         enable={{
-//           top: false,
-//           right: false,
-//           bottom: false,
-//           left: false,
-//           topRight: false,
-//           bottomRight: true,
-//           bottomLeft: false,
-//           topLeft: false,
-//         }}
-//         maxWidth="1200px"
-//       >
-//         <LiteYouTubeEmbed id={videoId} title="Are you really studying?" />
-//       </Resizable>
-//     </YoutubeComponent>
-//   ) : (
-//     <YoutubeComponent ref={divRef}>
-//       <Resizable
-//         minWidth="682px"
-//         minHeight="450px"
-//         maxWidth="1200px"
-//         lockAspectRatio={true}
-//       >
-//         <YoutubeHeader
-//           heading="youtube"
-//           ref={divRef}
-//           name="youtube"
-//           handleClose={handleOnClick}
-//         />
-//       </Resizable>
-//     </YoutubeComponent>
-//   );
-// };
 export default Youtube;

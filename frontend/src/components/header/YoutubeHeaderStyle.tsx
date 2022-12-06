@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SearchbarStyled = styled.div<{ pressed: boolean }>`
   display: flex;
-  min-width: 682px;
+  min-width: 650px;
   width: auto;
   margin: auto;
   height: 30px;
