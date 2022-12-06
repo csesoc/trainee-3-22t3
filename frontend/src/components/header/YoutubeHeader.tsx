@@ -39,7 +39,7 @@ const YoutubeHeader = forwardRef((props: HeaderProps, ref: any) => {
     existingStates.videoId = url;
     setYTState(existingStates);
   }
-  
+
   const handleOnMouseDown = useCallback(() => {
     setPressed(true);
   }, []);
@@ -88,16 +88,20 @@ const YoutubeHeader = forwardRef((props: HeaderProps, ref: any) => {
       />
       <h1>{props.heading}</h1>
       <input
-          ref={inputRef}
-          className="urlInput"
-          type="text"
-          name="url"
-          placeholder="Enter Youtube Link Here"
-          onKeyDown={handleSearchClick}
-        />
-        <button type="submit" className="searchButton" onClick={handleSearchClick}>
-          Search
-        </button>
+        ref={inputRef}
+        className="urlInput"
+        type="text"
+        name="url"
+        placeholder="Enter Youtube Link Here"
+        onKeyDown={handleSearchClick}
+      />
+      <button
+        type="submit"
+        className="searchButton"
+        onClick={handleSearchClick}
+      >
+        Search
+      </button>
       <span onClick={() => props.handleClose(props.name)}>
         <FontAwesomeIcon icon={faWindowMinimize} />
       </span>

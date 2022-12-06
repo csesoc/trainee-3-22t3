@@ -26,35 +26,80 @@ const Youtube = () => {
     existingStates[key] = !existingStates[key];
     setToggleBtn(existingStates);
   };
-
-  return youtubeState && videoId !== "" ? (
+  return (
     <YoutubeComponent ref={divRef} className="videoTrue">
+      <YoutubeHeader
+        heading="youtube"
+        ref={divRef}
+        name="youtube"
+        handleClose={handleOnClick}
+      />
       <Resizable
-        minWidth="videoWidth"
-        minHeight="videoHeight"
+        minWidth="682px"
+        minHeight={videoId !== "" ? "0px" : "1000px"}
         lockAspectRatio={true}
+        enable={{
+          top: false,
+          right: false,
+          bottom: false,
+          left: false,
+          topRight: false,
+          bottomRight: true,
+          bottomLeft: false,
+          topLeft: false,
+        }}
+        maxWidth="1600px"
       >
-        <YoutubeHeader
-          heading="youtube"
-          ref={divRef}
-          name="youtube"
-          handleClose={handleOnClick}
-        />
-        <LiteYouTubeEmbed id={videoId} title="Are you really studying?" />
-      </Resizable>
-    </YoutubeComponent>
-  ) : (
-    <YoutubeComponent ref={divRef}>
-      <Resizable minWidth="682px" minHeight="450px" lockAspectRatio={true}>
-        <YoutubeHeader
-          heading="youtube"
-          ref={divRef}
-          name="youtube"
-          handleClose={handleOnClick}
-        />
+        {videoId !== "" && (
+          <LiteYouTubeEmbed id={videoId} title="Are you really studying?" />
+        )}
       </Resizable>
     </YoutubeComponent>
   );
+
+  // return youtubeState && videoId !== "" ? (
+  //   <YoutubeComponent ref={divRef} className="videoTrue">
+  //     <YoutubeHeader
+  //       heading="youtube"
+  //       ref={divRef}
+  //       name="youtube"
+  //       handleClose={handleOnClick}
+  //     />
+  //     <Resizable
+  //       minWidth="682px"
+  //       lockAspectRatio={true}
+  //       enable={{
+  //         top: false,
+  //         right: false,
+  //         bottom: false,
+  //         left: false,
+  //         topRight: false,
+  //         bottomRight: true,
+  //         bottomLeft: false,
+  //         topLeft: false,
+  //       }}
+  //       maxWidth="1200px"
+  //     >
+  //       <LiteYouTubeEmbed id={videoId} title="Are you really studying?" />
+  //     </Resizable>
+  //   </YoutubeComponent>
+  // ) : (
+  // <YoutubeComponent ref={divRef}>
+  //   <Resizable
+  //     minWidth="682px"
+  //     minHeight="450px"
+  //     maxWidth="1200px"
+  //     lockAspectRatio={true}
+  //   >
+  //     <YoutubeHeader
+  //       heading="youtube"
+  //       ref={divRef}
+  //       name="youtube"
+  //       handleClose={handleOnClick}
+  //     />
+  //   </Resizable>
+  // </YoutubeComponent>
+  // );
 };
 export default Youtube;
 // const YoutubeEmbed = () => {
