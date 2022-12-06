@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SearchbarStyled = styled.div<{ pressed: boolean }>`
   display: flex;
   width: auto;
-  min-width: 650px;
+  min-width: 682px;
   height: 30px;
   margin: auto;
   padding: 1rem;
@@ -40,10 +40,10 @@ export const SearchbarStyled = styled.div<{ pressed: boolean }>`
     max-width: 150px;
     height: 29px;
     border: 1px solid rgba(0, 0, 0, 0.5);
-    border-left-width: 0px;    
+    border-left-width: 0px;
     border-radius: 0px 10px 10px 0px;
   }
-  .searchButton: hover {
+  .searchbutton: hover {
     background-color: darkgrey;
     cursor: pointer;
   }
