@@ -35,7 +35,7 @@ const Youtube = () => {
         name="youtube"
         handleClose={handleOnClick}
       />
-      <Resizable
+      {/* <Resizable
         minWidth="682px"
         minHeight={youtubeState && videoId !== "" ? "0px" : "380px"}
         lockAspectRatio={true}
@@ -50,11 +50,11 @@ const Youtube = () => {
           topLeft: false,
         }}
         maxWidth="1600px"
-      >
-        {youtubeState && videoId !== "" && (
-          <LiteYouTubeEmbed id={videoId} title="Are you really studying?" />
-        )}
-      </Resizable>
+      > */}
+      {youtubeState && videoId !== "" && (
+        <LiteYouTubeEmbed id={videoId} title="Are you really studying?" />
+      )}
+      {/* </Resizable> */}
     </YoutubeComponent>
   );
 };

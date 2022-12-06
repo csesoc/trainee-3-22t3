@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const SearchbarStyled = styled.div<{ pressed: boolean }>`
   display: flex;
-  width: auto;
   min-width: 682px;
-  height: 30px;
+  width: auto;
   margin: auto;
+  height: 30px;
   padding: 1rem;
   backdrop-filter: "blur(200px)";
   background-color: Canvas;

@@ -53,8 +53,8 @@ const YoutubeHeader = forwardRef((props: HeaderProps, ref: any) => {
     let position = { x: targetInfo.left, y: targetInfo.top };
     const maxWidth = window.innerWidth - targetInfo.width;
     const maxHeight = window.innerHeight - targetInfo.height;
-    ref.current.style.position = "absolute";
     // Handle mouse movement
+    ref.current.style.position = "absolute";
     const handleOnMouseMove = (event: MouseEvent) => {
       position.x += event.movementX;
       position.x = position.x < 0 ? 0 : position.x;
