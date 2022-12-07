@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./ToDoItem.css"
 
-type deleteTodoFunction = (todoId: number) => void;
+type deleteTodoFunction = (todoId: number, event: any) => void;
 
 interface ToDoItemObject {
     todoId: number,
@@ -32,12 +32,12 @@ const ToDoItem = (props: ToDoItemObject) => {
         <div className = 'todoItem'>
             <div className = 'item'>
                 <div className = 'itemLeft'>   
-                    <input type="checkbox" onChange={handleChecked}/>
+                    <input type="checkbox" checked={todo.isDone} onChange={handleChecked}/>
                     <input className = 'textBox' style={{ opacity: startedTyping ? 1 : 0.7}} type="text" value={todo.desc} onChange={handleChange} />
                 </div>
                   
                 <div className = 'itemsRight'>   
-                    <button className="delete-button" onClick={() => props.deleteTodo(props.todoId)}>
+                    <button className="delete-button" onClick={(event) => props.deleteTodo(props.todoId, event)}>
                         X
                     </button>
                 </div>

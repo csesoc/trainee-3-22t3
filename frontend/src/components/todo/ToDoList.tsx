@@ -38,9 +38,16 @@ function ToDoList() {
         setTodos(newTodos);
     };
 
-    const deleteTodo = (todoId: number) => {
-        let newTodos = todos.filter((item) => item.id !== todoId);
-        setTodos(newTodos);
+    const deleteTodo = (todoId: number, event: any) => {
+        let newTodos = [];
+
+        for (const todo of todos) {
+            if (todo.id !== todoId) {
+                newTodos.push(todo);
+            }
+        }
+        setTodos(newTodos)
+
     };
 
     return todolistState ? (
@@ -53,7 +60,7 @@ function ToDoList() {
 
             <div className='todos'>   
                 {todos.map((item: item) => (
-                <TodoItem todoId={item.id} deleteTodo={deleteTodo} 
+                <TodoItem todoId={item.id} deleteTodo={deleteTodo}
                     todos={todos} setTodos={setTodos} />
                 ))}
             </div>
