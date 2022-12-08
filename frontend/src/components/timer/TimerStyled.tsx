@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Timer = styled.div<{ isStudyMode: boolean }>`
+export const Timer = styled.div<{ isStudyMode: boolean }>`
   background-color: ${(props) =>
     props.isStudyMode ? "rgb(202, 86, 82)" : "rgb(56, 133, 138)"};
   border-radius: 12px;
@@ -9,13 +9,22 @@ const Timer = styled.div<{ isStudyMode: boolean }>`
   width: 400px;
   text-align: center;
   color: black;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
-const MiniTimer = styled(Timer)`
+export const TimerHeading = styled.div`
+  display: flex;
+  justify-content: center;
+  font-family: courier, monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+`;
+
+export const MiniTimer = styled(Timer)`
   min-height: 50px;
   width: 5vw;
   display: flex;
@@ -36,7 +45,7 @@ export const ModeButton = styled.button<{ isSelected: boolean }>`
   font-weight: ${(props) => (props.isSelected ? "bold" : "normal")};
 `;
 
-enum TimerMode {
+export enum TimerMode {
   Study,
   Break,
 }
@@ -50,5 +59,3 @@ export interface TimerStates {
   started: boolean;
   autoTransition: boolean;
 }
-
-export { Timer, TimerMode, MiniTimer };

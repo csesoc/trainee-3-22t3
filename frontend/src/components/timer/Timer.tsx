@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Timer.css";
-import { Timer, TimerMode } from "./TimerStyled";
+import { Timer, TimerMode, TimerHeading } from "./TimerStyled";
 import { useRecoilState } from "recoil";
 import { currentTimeState } from "../../recoil_state";
 import TimerSettings from "./TimerSettings";
@@ -36,20 +36,10 @@ const PomodoroTimer = () => {
 
   return (
     <>
-      <TimerProgressBar
-        progress={currState.minutes * 60 + currState.seconds}
-        duration={
-          currState.mode === TimerMode.Study
-            ? currState.pomodoro
-            : currState.break
-        }
-      />
-      <Timer isStudyMode={currState.mode === TimerMode.Study ? true : false}>
-        {/* name + minimise button thing */}
-        <div className="timer-heading">
-          <div className="timer-title">Pomodoro Timer</div>
-          <button>minimise</button>
-        </div>
+      <Timer isStudyMode={currState.mode === TimerMode.Study}>
+        <TimerHeading style={{ alignSelf: "flex-start" }}>
+          Pomodoro Timer
+        </TimerHeading>
         {/* study OR break */}
         <div className="timer-modes">
           <ModeButton
@@ -63,6 +53,7 @@ const PomodoroTimer = () => {
           >
             Study
           </ModeButton>
+          |
           <ModeButton
             isSelected={currState.mode === TimerMode.Break}
             onClick={() => {
@@ -126,7 +117,8 @@ const PomodoroTimer = () => {
           </button>
         </div>
       </Timer>
-      {openSettings ? <TimerSettings /> : <></>}
+
+      {/* {openSettings ? <TimerSettings /> : <></>} */}
     </>
   );
 };
