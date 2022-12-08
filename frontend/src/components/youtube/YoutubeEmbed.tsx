@@ -33,7 +33,7 @@ const Youtube = () => {
       }
     >
       <YoutubeHeader
-        heading="youtube"
+        heading="Youtube"
         ref={divRef}
         name="youtube"
         handleClose={handleOnClick}

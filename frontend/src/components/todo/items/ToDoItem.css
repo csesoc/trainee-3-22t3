@@ -1,75 +1,83 @@
 .todoItem {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .textBox {
-    border: none;
-    border-color: transparent;
-    background-color: transparent;
+  border: none;
+  border-color: transparent;
+  background-color: transparent;
 }
 
 .checkbox {
-    background-color: transparent;
+  background-color: transparent;
 }
 
-.textBox:focus{
-    border: none;
-    outline:none;
+.textBox:focus {
+  border: none;
+  outline: none;
 }
 
 .delete-button {
-    opacity: 0%;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-    transition: 0.3s;
+  opacity: 0%;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  transition: 0.3s;
 }
 
 .item {
-    display:flex;
-    border-radius:5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  position: relative;
+  padding: .15rem;
+  z-index: 1;
 }
 
 .item:hover {
-    background-color: #F3F3F3;
-    -webkit-text-fill-color: black;
-    transition: 0.2s;
+  transition: 0.2s;
+}
+
+.item:hover::before {
+  content: "";
+  position: absolute;
+  background-color: CanvasText;
+  opacity: .05;
+  border-radius: 5px;
+  width: 100%;
+  height: 1.65rem;
+  z-index: -1;
+}
+
+.item input[type="text"] {
+  width: 100%;
 }
 
 .delete-button:hover {
-    color: red;
-    -webkit-text-fill-color: red;
+  color: red;
+  -webkit-text-fill-color: red;
 }
 
 .item:hover .delete-button {
-    opacity: 100%;
-    transition: 0.3s;
-    align-self: right;
+  opacity: 100%;
+  transition: 0.3s;
+  align-self: right;
 }
 
 .add-button {
-    opacity: 0.7;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
+  opacity: 0.7;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 
-    position: absolute;
-    bottom: 50px;
-}
-
-.itemLeft {
-    float: left;
-    display: flex;
-    justify-content: center;
-}
-
-.itemsRight {
-    margin-left: auto; 
-    margin-right: 0;
+  position: absolute;
+  bottom: 50px;
+  padding: 0 15px;
 }
