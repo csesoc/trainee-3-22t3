@@ -35,12 +35,6 @@ const PomodoroTimer = () => {
     setCurrState(currStates);
   };
 
-  // return (
-  //   <Timer ref={divRef} isStudyMode={currState.mode === TimerMode.Study}>
-  //     <Header name="timer" heading="Timer" ref={divRef} />
-  //   </Timer>
-  // );
-
   return (
     <Timer ref={divRef} isStudyMode={currState.mode === TimerMode.Study}>
       <Header name="timer" heading="Timer" ref={divRef} />
@@ -84,10 +78,14 @@ const PomodoroTimer = () => {
       </div>
       {/* start/stop/resume + reset buttons */}
       <div className="timer-buttons">
-        <button onClick={() => updateStates({ started: !currState.started })}>
+        <button
+          className="timerbutton"
+          onClick={() => updateStates({ started: !currState.started })}
+        >
           {!currState.started ? "Start" : "Stop"}
         </button>
         <button
+          className="timerbutton"
           onClick={() =>
             updateStates({
               minutes:

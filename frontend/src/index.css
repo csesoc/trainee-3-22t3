@@ -2,7 +2,6 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -37,6 +36,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+* {
+  font-family: inherit;
 }
 
 @media (prefers-color-scheme: light) {

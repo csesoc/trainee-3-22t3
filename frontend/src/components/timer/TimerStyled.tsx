@@ -3,7 +3,6 @@ import styled from "styled-components";
 const Timer = styled.div<{ isStudyMode: boolean }>`
   background-color: ${(props) =>
     props.isStudyMode ? "Canvas" : "rgb(56, 133, 138)"};
-  // border-radius: 12px;
   min-height: 275px;
   // padding: 12px;
   width: 400px;
@@ -14,11 +13,11 @@ const Timer = styled.div<{ isStudyMode: boolean }>`
 `;
 
 const MiniTimer = styled(Timer)`
-  min-height: 50px;
+  min-height: 10px;
   width: 5vw;
   display: flex;
   justify-content: center;
-  font-size: 2vw;
+  font-size: 5vw;
 `;
 
 export const TimerModesRow = styled.div`
@@ -52,8 +51,6 @@ export const TransitionButton = styled.button<{ mode: TimerMode }>`
   margin: 20px 0px 0px;
   padding: 0px 12px;
   border-radius: 7px;
-  // box-shadow: rgb(235 235 235) 0px 6px 0px;
-  font-family: ArialRounded;
   font-size: 22px;
   height: 55px;
   color: ${(props) =>
