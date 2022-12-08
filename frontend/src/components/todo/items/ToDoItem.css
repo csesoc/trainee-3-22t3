@@ -28,11 +28,6 @@
     transition: 0.3s;
 }
 
-.delete-button:hover {
-    color: red;
-    transition: 0.2s;
-}
-
 .item {
     display:flex;
     border-radius:5px;
@@ -42,6 +37,11 @@
     background-color: #F3F3F3;
     -webkit-text-fill-color: black;
     transition: 0.2s;
+}
+
+.delete-button:hover {
+    color: red;
+    -webkit-text-fill-color: red;
 }
 
 .item:hover .delete-button {

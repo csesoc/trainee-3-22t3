@@ -1,6 +1,7 @@
 import { atom } from "recoil";
 import { ButtonStates } from "./components/navbar/NavbarStyled";
-import defaultBackground from './assets/sample_background.png';
+import { YoutubeWidgetState } from "./components/youtube/YoutubeValues";
+import defaultBackground from "./assets/sample_background.png";
 
 const initialStates: ButtonStates = {
   timer: false,
@@ -11,26 +12,35 @@ const initialStates: ButtonStates = {
   user: false,
 };
 
+const initialYTState: YoutubeWidgetState = {
+  videoId: "",
+};
+
+const YTstate = atom({
+  key: "YTstate",
+  default: initialYTState,
+});
+
 const navbarButtonState = atom({
   key: "navbarButtonState",
   default: initialStates,
 });
 
 interface initialStyleInterface {
-  fontFamily: string,
-  backgroundImage: string,
-  theme: string
+  fontFamily: string;
+  backgroundImage: string;
+  theme: string;
 }
 
 const initialStyles: initialStyleInterface = {
-  fontFamily: 'Arial',
+  fontFamily: "Arial",
   backgroundImage: `url(${defaultBackground})`,
-  theme: 'light'
-}
+  theme: "light",
+};
 
 const globalStyles = atom({
   key: "globalStyles",
   default: initialStyles,
 });
 
-export { navbarButtonState, globalStyles }
+export { navbarButtonState, globalStyles, YTstate };

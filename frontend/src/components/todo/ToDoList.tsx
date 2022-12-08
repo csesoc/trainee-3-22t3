@@ -5,7 +5,6 @@ import "./ToDoList.css";
 import Header from "../header/Header";
 import { useRecoilValue } from "recoil";
 import { navbarButtonState } from "../../recoil_state";
-import ProgressBar from 'react-bootstrap/ProgressBar';
 
 interface item {
     id: number,
@@ -76,7 +75,6 @@ function ToDoList() {
                     <p>
                         Completed: {todos.filter(todo => todo.isDone).length} out of {todos.length}
                     </p>
-                    <ProgressBar now={todos.filter(todo => todo.isDone).length} />
                 </div>
             </div>
         </div>
