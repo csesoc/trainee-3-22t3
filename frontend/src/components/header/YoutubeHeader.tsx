@@ -1,46 +1,44 @@
-import styled from "styled-components";
-import { navbarButtonState } from "../../recoil_state";
-import { useRecoilState } from "recoil";
 import { faWindowMinimize } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { ButtonStates } from "../navbar/NavbarStyled";
 import { forwardRef } from "react";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { YTstate } from "../../recoil_state";
+import { useRecoilState } from "recoil";
+import { SearchbarStyled } from "./YoutubeHeaderStyle";
 
-// Styling for the header
-const HeaderStyled = styled.div<{ pressed: boolean }>`
-  display: flex;
-  width: auto;
-  margin: auto;
-  padding: 1rem;
-  background-color: Canvas;
-  h1 {
-    font-size: 20px;
-    margin: 0;
-  }
-  span {
-    transform: translateY(-15%);
-    margin-left: auto;
-    margin-right: 0.5rem;
-  }
-  user-select: none;
-  cursor: ${(props) => (props.pressed ? "grabbing" : "grab")};
-`;
+type handleClose = (key: keyof ButtonStates) => void;
 
 interface HeaderProps {
   heading: string;
   name: keyof ButtonStates;
+  handleClose: handleClose;
 }
 
-const Header = forwardRef((props: HeaderProps, ref: any) => {
-  const [toggleBtn, setToggleBtn] = useRecoilState(navbarButtonState);
+const YoutubeHeader = forwardRef((props: HeaderProps, ref: any) => {
   const [pressed, setPressed] = useState(false);
-
-  const handleOnClick = (key: keyof ButtonStates) => {
-    const existingStates = { ...toggleBtn };
-    existingStates[key] = !existingStates[key];
-    setToggleBtn(existingStates);
-  };
+  const [currentYTState, setYTState] = useRecoilState(YTstate);
+  // search bar functional components
+  const inputRef: any = useRef();
+  function youtube_parser(url: string): string | false {
+    var regExp =
+      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var match = url.match(regExp);
+    return match && match[7].length == 11 ? match[7] : false;
+  }
+  function handleSearchClick() {
+    const url: string | false = youtube_parser(String(inputRef.current.value));
+    const existingStates = { ...currentYTState };
+    if (url === false) {
+      console.log(`Link is of incorrect format`);
+      existingStates.videoId = "";
+      setYTState(existingStates);
+      return;
+    }
+    existingStates.videoId = url;
+    setYTState(existingStates);
+  }
 
   const handleOnMouseDown = useCallback(() => {
     setPressed(true);
@@ -55,8 +53,8 @@ const Header = forwardRef((props: HeaderProps, ref: any) => {
     let position = { x: targetInfo.left, y: targetInfo.top };
     const maxWidth = window.innerWidth - targetInfo.width;
     const maxHeight = window.innerHeight - targetInfo.height;
-    ref.current.style.position = "absolute";
     // Handle mouse movement
+    ref.current.style.position = "absolute";
     const handleOnMouseMove = (event: MouseEvent) => {
       position.x += event.movementX;
       position.x = position.x < 0 ? 0 : position.x;
@@ -82,13 +80,33 @@ const Header = forwardRef((props: HeaderProps, ref: any) => {
   }, [pressed]);
 
   return (
-    <HeaderStyled onMouseDown={handleOnMouseDown} pressed={pressed}>
+    <SearchbarStyled onMouseDown={handleOnMouseDown} pressed={pressed}>
+      <FontAwesomeIcon
+        className="youtube-icon"
+        icon={faYoutube}
+        name="Youtube"
+      />
       <h1>{props.heading}</h1>
-      <span onClick={() => handleOnClick(props.name)}>
+      <input
+        ref={inputRef}
+        className="urlInput"
+        type="text"
+        name="url"
+        placeholder="Enter Youtube Link Here"
+        onKeyDown={handleSearchClick}
+      />
+      <button
+        type="submit"
+        className="searchButton"
+        onClick={handleSearchClick}
+      >
+        Search
+      </button>
+      <span onClick={() => props.handleClose(props.name)}>
         <FontAwesomeIcon icon={faWindowMinimize} />
       </span>
-    </HeaderStyled>
+    </SearchbarStyled>
   );
 });
 
-export default Header;
+export default YoutubeHeader;

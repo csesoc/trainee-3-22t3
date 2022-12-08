@@ -1,25 +1,64 @@
-import React from "react"
-import "./YoutubeEmbed.css"
-import Draggable from "react-draggable"
+// import React from "react";
+// import Draggable from "react-draggable";
+// import Moveable, { InitialMoveable, Resizable } from "react-moveable";
+import { Resizable } from "re-resizable";
 
-const YoutubeEmbed = () => {
+import { useRef } from "react";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+
+import { navbarButtonState, YTstate } from "../../recoil_state";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { ButtonStates } from "../navbar/NavbarStyled";
+import { YoutubeComponent } from "./YoutubeStyled";
+import YoutubeHeader from "../header/YoutubeHeader";
+
+const Youtube = () => {
+  const [toggleBtn, setToggleBtn] = useRecoilState(navbarButtonState);
+  const youtubeState = useRecoilValue(navbarButtonState)["youtube"];
+  const videoId = useRecoilValue(YTstate)["videoId"];
+  const divRef = useRef<HTMLDivElement>(null);
+
+  const handleOnClick = (key: keyof ButtonStates) => {
+    const existingStates = { ...toggleBtn };
+    existingStates[key] = !existingStates[key];
+    setToggleBtn(existingStates);
+  };
+
   return (
-    <Draggable>
-      <div className='youtube-widget'>
-        <div>
-          <iframe
-            width='854'
-            height='480'
-            src='https://www.youtube.com/embed/NvftPSb5Xtw'
-            title='Secret Forest 🍃 Chill Lofi Beats'
-            frameBorder='0'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
-    </Draggable>
-  )
-}
-
-export default YoutubeEmbed
+    <YoutubeComponent
+      ref={divRef}
+      className={
+        youtubeState && videoId !== "" ? "videoTrue" : "YoutubeComponent"
+      }
+    >
+      <YoutubeHeader
+        heading="youtube"
+        ref={divRef}
+        name="youtube"
+        handleClose={handleOnClick}
+      />
+      <Resizable
+        minWidth="682px"
+        minHeight="380px"
+        lockAspectRatio={true}
+        enable={{
+          top: false,
+          right: false,
+          bottom: false,
+          left: false,
+          topRight: false,
+          bottomRight: true,
+          bottomLeft: false,
+          topLeft: false,
+        }}
+        maxHeight="1000px"
+      >
+        {youtubeState && videoId !== "" && (
+          <LiteYouTubeEmbed id={videoId} title="Are you really studying?" />
+        )}
+      </Resizable>
+    </YoutubeComponent>
+  );
+};
+export default Youtube;
