@@ -118,7 +118,7 @@ const PomodoroTimer = () => {
         </div>
       </Timer>
 
-      {/* {openSettings ? <TimerSettings /> : <></>} */}
+      {openSettings ? <TimerSettings /> : <></>}
     </>
   );
 };
