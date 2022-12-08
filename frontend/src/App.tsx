@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import PomodoroTimer from "./components/timer/Timer";
 import MinimisedTimer from "./components/timer/MinimisedTimer";
-import { currentTimeState, navbarButtonState } from "./recoil_state";
+import {
+  globalStyles,
+  currentTimeState,
+  navbarButtonState,
+} from "./recoil_state";
 import { TimerMode } from "./components/timer/TimerStyled";
 import Navbar from "./components/navbar/Navbar";
 import { Fragment } from "react";
 import Settings from "./components/themes/Settings";
 import { createGlobalStyle } from "styled-components";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { globalStyles, navbarButtonState } from "./recoil_state";
 import Youtube from "./components/youtube/YoutubeEmbed";
 import Notes from "./components/notes/Notes";
 import ToDoList from "./components/todo/ToDoList";
@@ -63,9 +66,8 @@ function App() {
       // document.title = "CRAZY IDEA";
     };
   }, [timerState]);
-  
+
   const currentGlobalStyles = useRecoilValue(globalStyles);
-  const navbarButtonStates = useRecoilValue(navbarButtonState);
   const GlobalStyles = createGlobalStyle`
     :root {
       font-family: ${currentGlobalStyles.fontFamily};
