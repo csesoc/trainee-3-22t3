@@ -7,7 +7,6 @@ import {
   faSun,
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
-import React from "react";
 import NavbarButton from "./NavbarButton";
 
 const Navbar = () => {
@@ -29,3 +28,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
