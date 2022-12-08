@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 import { globalStyles, navbarButtonState } from "./recoil_state";
 import Youtube from "./components/youtube/YoutubeEmbed";
 import Notes from "./components/notes/Notes";
+import ToDoList from "./components/todo/ToDoList";
 
 function App() {
   const currentGlobalStyles = useRecoilValue(globalStyles);
@@ -25,6 +26,7 @@ function App() {
         <Settings />
         {navbarButtonStates.youtube && <Youtube />}
         <Notes />
+        <ToDoList />
       </div>
     </Fragment>
   );
