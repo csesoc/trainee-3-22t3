@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./Timer.css";
-import { Timer, TimerMode, TimerHeading } from "./TimerStyled";
+import { Timer, TimerMode } from "./TimerStyled";
 import { useRecoilState } from "recoil";
 import { currentTimeState } from "../../recoil_state";
 import TimerSettings from "./TimerSettings";
-import { ModeButton } from "./TimerStyled";
-import TimerProgressBar from "./TimerProgressBar";
+import { ModeButton, TimerModesRow, TransitionButton } from "./TimerStyled";
+// import TimerProgressBar from "./TimerProgressBar";
+import Header from "../header/Header";
 
 const PomodoroTimer = () => {
   const [currState, setCurrState] = useRecoilState(currentTimeState);
-
   const [openSettings, setOpenSettings] = useState(false);
+  const divRef = useRef<HTMLDivElement>(null);
 
   const updateStates = (props: {
     minutes?: number;
@@ -34,92 +35,89 @@ const PomodoroTimer = () => {
     setCurrState(currStates);
   };
 
-  return (
-    <>
-      <Timer isStudyMode={currState.mode === TimerMode.Study}>
-        <TimerHeading style={{ alignSelf: "flex-start" }}>
-          Pomodoro Timer
-        </TimerHeading>
-        {/* study OR break */}
-        <div className="timer-modes">
-          <ModeButton
-            isSelected={currState.mode === TimerMode.Study}
-            onClick={() => {
-              updateStates({
-                mode: TimerMode.Study,
-                started: false,
-              });
-            }}
-          >
-            Study
-          </ModeButton>
-          |
-          <ModeButton
-            isSelected={currState.mode === TimerMode.Break}
-            onClick={() => {
-              updateStates({
-                mode: TimerMode.Break,
-                started: false,
-              });
-            }}
-          >
-            Break
-          </ModeButton>
-        </div>
-        {/* the actual timer */}
-        <div className="time">
-          <span>
-            {currState.minutes > 10
-              ? currState.minutes
-              : "0" + currState.minutes}
-          </span>
-          :
-          <span>
-            {currState.seconds % 60 > 10
-              ? currState.seconds % 60
-              : "0" + (currState.seconds % 60)}
-          </span>
-        </div>
-        {/* start/stop/resume + reset buttons */}
-        <div className="timer-buttons">
-          <button onClick={() => updateStates({ started: !currState.started })}>
-            {!currState.started ? "START" : "STOP"}
-          </button>
-          <button
-            onClick={() =>
-              updateStates({
-                minutes:
-                  currState.mode === TimerMode.Study
-                    ? currState.pomodoro
-                    : currState.break,
-                seconds: 0,
-                started: false,
-              })
-            }
-          >
-            RESET
-          </button>
-        </div>
-        {/* auto transition between study/breaks */}
-        <div className="timer-transition-button">
-          <label>
-            Auto-transition
-            <input
-              type="checkbox"
-              style={{ float: "left", paddingTop: "5px" }}
-              onChange={() =>
-                updateStates({ autoTransition: !currState.autoTransition })
-              }
-            />
-          </label>
-          <button onClick={() => setOpenSettings(!openSettings)}>
-            Settings
-          </button>
-        </div>
-      </Timer>
+  // return (
+  //   <Timer ref={divRef} isStudyMode={currState.mode === TimerMode.Study}>
+  //     <Header name="timer" heading="Timer" ref={divRef} />
+  //   </Timer>
+  // );
 
+  return (
+    <Timer ref={divRef} isStudyMode={currState.mode === TimerMode.Study}>
+      <Header name="timer" heading="Timer" ref={divRef} />
+      {/* study OR break */}
+      <div className="timer-modes">
+        <ModeButton
+          isSelected={currState.mode === TimerMode.Study}
+          onClick={() => {
+            updateStates({
+              mode: TimerMode.Study,
+              started: false,
+            });
+          }}
+        >
+          Study
+        </ModeButton>
+        |
+        <ModeButton
+          isSelected={currState.mode === TimerMode.Break}
+          onClick={() => {
+            updateStates({
+              mode: TimerMode.Break,
+              started: false,
+            });
+          }}
+        >
+          Break
+        </ModeButton>
+      </div>
+      {/* the actual timer */}
+      <div className="time">
+        <span>
+          {currState.minutes > 10 ? currState.minutes : "0" + currState.minutes}
+        </span>
+        :
+        <span>
+          {currState.seconds % 60 > 10
+            ? currState.seconds % 60
+            : "0" + (currState.seconds % 60)}
+        </span>
+      </div>
+      {/* start/stop/resume + reset buttons */}
+      <div className="timer-buttons">
+        <button onClick={() => updateStates({ started: !currState.started })}>
+          {!currState.started ? "Start" : "Stop"}
+        </button>
+        <button
+          onClick={() =>
+            updateStates({
+              minutes:
+                currState.mode === TimerMode.Study
+                  ? currState.pomodoro
+                  : currState.break,
+              seconds: 0,
+              started: false,
+            })
+          }
+        >
+          Reset
+        </button>
+      </div>
+      {/* auto transition between study/breaks */}
+      <div className="timer-transition-button">
+        <label>
+          Auto-transition
+          <input
+            type="checkbox"
+            style={{ float: "left", paddingTop: "5px" }}
+            onChange={() =>
+              updateStates({ autoTransition: !currState.autoTransition })
+            }
+          />
+        </label>
+        <button onClick={() => setOpenSettings(!openSettings)}>Settings</button>
+      </div>
       {openSettings ? <TimerSettings /> : <></>}
-    </>
+    </Timer>
   );
 };
 

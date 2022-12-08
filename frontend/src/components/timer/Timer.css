@@ -11,7 +11,8 @@
 
 .time {
   font-size: 60px;
-  font-family: courier, monospace;
+  height: 50px;
+  margin: 2rem;
 }
 
 /* STUDY/BREAK */
@@ -20,7 +21,7 @@
   justify-content: center;
   font-family: courier, monospace;
   gap: 25px;
-  min-height: 20%;
+  /* min-height: 20%; */
 }
 
 .timer-mode-selected {
