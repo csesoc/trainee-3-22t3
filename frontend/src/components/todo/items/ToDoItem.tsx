@@ -26,13 +26,21 @@ const ToDoItem = (props: ToDoItemObject) => {
   return (
     <div className="todoItem">
       <div className="item">
-        <input type="checkbox" checked={todo.isDone} onChange={handleChecked} />
+        <input type="checkbox" 
+          checked={todo.isDone}
+          onChange={handleChecked}
+        />
         <input
           className="textBox"
           type="text"
           value={todo.desc}
           placeholder="Type your task here..."
           onChange={handleChange}
+          style={{ 
+            textDecorationLine: todo.isDone ? "line-through" : "none",
+            pointerEvents: todo.isDone ? "none" : "initial"
+          }}
+          disabled={todo.isDone}
         />
 
         <button
