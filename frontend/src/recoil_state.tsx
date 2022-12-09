@@ -2,7 +2,8 @@ import { atom } from "recoil";
 import { ButtonStates } from "./components/navbar/NavbarStyled";
 import { TimerMode, TimerStates } from "./components/timer/TimerStyled";
 import { YoutubeWidgetState } from "./components/youtube/YoutubeValues";
-import defaultBackground from "./assets/sample_background.png";
+
+const defaultBackground = "https://www.lofi.cafe/gifs/NKEt9elQ5cR68.gif";
 
 const initialButtonStates: ButtonStates = {
   timer: false,
@@ -31,7 +32,7 @@ const pomodoroDuration = localStorage.getItem("pomodoro-duration");
 const breakDuration = localStorage.getItem("break-duration");
 
 const timeDefaults: TimerStates = {
-  minutes: 25,
+  minutes: 1,
   seconds: 0,
   pomodoro: parseInt(pomodoroDuration !== null ? pomodoroDuration : "25"),
   break: parseInt(breakDuration !== null ? breakDuration : "15"),

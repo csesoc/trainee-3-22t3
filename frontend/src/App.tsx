@@ -57,13 +57,11 @@ function App() {
           setTimerState(existingState);
 
           clearInterval(interval);
-          document.title = "CRAZY IDEA";
         }
       }
     }, 1000);
     return () => {
       clearInterval(interval);
-      // document.title = "CRAZY IDEA";
     };
   }, [timerState]);
 
