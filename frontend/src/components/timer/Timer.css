@@ -48,30 +48,25 @@
 
 .timer-btn-stop-start {
   color: white;
-  font-size: 20px;
-  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  padding: 0.65rem 1.5rem;
   border-radius: 15px;
+  width: 5.5rem;
+  align-self: center;
   border: none;
-  background-color: #298afb;
   cursor: pointer;
-}
-
-.timer-btn-stop-start:hover {
-  background-color: #2170cc;
 }
 
 .timer-btn-reset {
   color: white;
-  font-size: 20px;
-  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  padding: 0.65rem 1.5rem;
   border-radius: 15px;
+  width: 5.5rem;
+  align-self: center;
   border: none;
   background-color: #2b2b2b;
   cursor: pointer;
-}
-
-.timer-btn-reset:hover {
-  background-color: #1a1a1a;
 }
 
 /* AUTO TRANSITION BUTTON */
@@ -83,20 +78,26 @@
 
 /* SETTINGS */
 .settings-btn {
-  color: white;
   border-radius: 10px;
   border: none;
-  background-color: #2b2b2b;
   cursor: pointer;
-}
-
-.settings-btn:hover {
-  background-color: #1a1a1a;
+  background: none;
+  transform: scale(1.2);
 }
 
 .timer-settings {
   text-align: left;
   margin: 1.5rem;
+}
+
+.timer-settings form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.timer-settings input[type="number"] {
+  width: 100%;
 }
 
 .timer-settings-subheading {

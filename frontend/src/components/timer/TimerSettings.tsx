@@ -49,36 +49,43 @@ const TimerSettings = () => {
 
   return (
     <div className="timer-settings">
+      <div className="timer-settings-subheading">Time (In Minutes)</div>
       <form>
-        <div className="timer-settings-subheading">Time (In Minutes)</div>
-        <label>Pomodoro </label>
-        <input
-          className="timer-settings-textbox"
-          type="number"
-          value={currState.pomodoro}
-          min="0"
-          onChange={(e) => {
-            localStorage.setItem("pomodoro-duration", e.target.value);
-            const existingState = { ...currState };
-            existingState.pomodoro = parseInt(e.target.value);
-            setCurrState(existingState);
-          }}
-        />
+        <div>
+          <label>Study </label>
+          <input
+            className="timer-settings-textbox"
+            type="number"
+            value={currState.pomodoro}
+            min="0"
+            max="9999"
+            onKeyDown={() => event?.preventDefault()}
+            onChange={(e) => {
+              localStorage.setItem("pomodoro-duration", e.target.value);
+              const existingState = { ...currState };
+              existingState.pomodoro = parseInt(e.target.value);
+              setCurrState(existingState);
+            }}
+          />
+        </div>
 
-        <br></br>
-        <label>Break </label>
-        <input
-          className="timer-settings-textbox"
-          type="number"
-          value={currState.break}
-          min="0"
-          onChange={(e) => {
-            localStorage.setItem("break-duration", e.target.value);
-            const existingState = { ...currState };
-            existingState.break = parseInt(e.target.value);
-            setCurrState(existingState);
-          }}
-        />
+        <div>
+          <label>Break </label>
+          <input
+            className="timer-settings-textbox"
+            type="number"
+            value={currState.break}
+            min="0"
+            max="9999"
+            onKeyDown={() => event?.preventDefault()}
+            onChange={(e) => {
+              localStorage.setItem("break-duration", e.target.value);
+              const existingState = { ...currState };
+              existingState.break = parseInt(e.target.value);
+              setCurrState(existingState);
+            }}
+          />
+        </div>
       </form>
     </div>
   );

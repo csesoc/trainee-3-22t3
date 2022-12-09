@@ -4,12 +4,11 @@ import styled from "styled-components";
 const Timer = styled.div<{ isStudyMode: boolean }>`
   background-color: ${(props) => (props.isStudyMode ? "Canvas" : "Canvas")};
   min-height: 275px;
-  // padding: 12px;
   width: 400px;
   text-align: center;
-  // display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: absolute;
 `;
 
 const MiniTimer = styled(Timer)`
@@ -25,21 +24,18 @@ export const TimerModesRow = styled.div`
 `;
 
 export const ModeButton = styled.button<{ isSelected: boolean }>`
-  border-radius: 4px;
   padding: 2px 12px;
   height: 28px;
   box-shadow: none;
-  color: white;
   opacity: 1;
   font-weight: bold;
-  color: inherit;
   border: none;
   font-size: 16px;
   :hover {
     cursor: pointer;
   }
-
-  background: ${(props) => (props.isSelected ? "rgba(0, 0, 0, 0.15)" : "none")};
+  background: none;
+  border-bottom: ${(props) => (props.isSelected ? "1px solid" : "none")};
 `;
 
 export const TransitionButton = styled.button<{ mode: TimerMode }>`
