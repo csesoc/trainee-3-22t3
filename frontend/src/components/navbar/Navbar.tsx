@@ -21,7 +21,6 @@ const Navbar = () => {
 
       <div className="navbar-right">
         <NavbarButton icon={faSun} name="settings" />
-        <NavbarButton icon={faUser} name="user" />
       </div>
     </div>
   );

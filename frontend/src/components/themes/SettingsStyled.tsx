@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const SettingsDiv = styled.div`
   position: fixed;
-  right: 4.5rem;
+  right: 1rem;
   top: 3.5rem;
-  border-radius: 10px;
   padding: 1.5rem;
   background-color: Canvas;
   h1 {
@@ -79,7 +78,8 @@ export const CustomBgForm = styled.form`
     padding: 10px;
     margin: 0;
     background-color: transparent;
-    &:focus, &:active {
+    &:focus,
+    &:active {
       outline: none;
     }
     &::placeholder {
@@ -95,7 +95,8 @@ export const CustomBgForm = styled.form`
     padding: 10px;
     margin: 0;
     color: CanvasText;
-    &:focus, &:active {
+    &:focus,
+    &:active {
       outline: none;
     }
   }

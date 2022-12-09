@@ -62,4 +62,9 @@ const globalStyles = atom({
   default: initialStyles,
 });
 
-export { navbarButtonState, globalStyles, YTstate };
+const zIndexValue = atom({
+  key: "zIndexValue",
+  default: 0,
+});
+
+export { navbarButtonState, globalStyles, YTstate, zIndexValue };
