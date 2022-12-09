@@ -5,8 +5,9 @@ import { useRecoilState } from "recoil";
 import { currentTimeState } from "../../recoil_state";
 import TimerSettings from "./TimerSettings";
 import { ModeButton, TimerModesRow, TransitionButton } from "./TimerStyled";
-// import TimerProgressBar from "./TimerProgressBar";
 import Header from "../header/Header";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 const PomodoroTimer = () => {
   const [currState, setCurrState] = useRecoilState(currentTimeState);
@@ -42,6 +43,10 @@ const PomodoroTimer = () => {
       <div className="timer-modes">
         <ModeButton
           isSelected={currState.mode === TimerMode.Study}
+          style={{
+            color:
+              currState.mode === TimerMode.Study ? "#E13A61" : "CanvasText",
+          }}
           onClick={() => {
             updateStates({
               mode: TimerMode.Study,
@@ -54,6 +59,10 @@ const PomodoroTimer = () => {
         |
         <ModeButton
           isSelected={currState.mode === TimerMode.Break}
+          style={{
+            color:
+              currState.mode !== TimerMode.Study ? "#298AFB" : "CanvasText",
+          }}
           onClick={() => {
             updateStates({
               mode: TimerMode.Break,
@@ -65,13 +74,20 @@ const PomodoroTimer = () => {
         </ModeButton>
       </div>
       {/* the actual timer */}
-      <div className="time">
+      <div
+        className="time"
+        style={{
+          color: currState.mode === TimerMode.Study ? "#E13A61" : "#298AFB",
+        }}
+      >
         <span>
-          {currState.minutes > 10 ? currState.minutes : "0" + currState.minutes}
+          {currState.minutes >= 10
+            ? currState.minutes
+            : "0" + currState.minutes}
         </span>
         :
         <span>
-          {currState.seconds % 60 > 10
+          {currState.seconds % 60 >= 10
             ? currState.seconds % 60
             : "0" + (currState.seconds % 60)}
         </span>
@@ -81,6 +97,10 @@ const PomodoroTimer = () => {
         <button
           className="timer-btn-stop-start"
           onClick={() => updateStates({ started: !currState.started })}
+          style={{
+            backgroundColor:
+              currState.mode === TimerMode.Study ? "#E13A61" : "#298AFB",
+          }}
         >
           {!currState.started ? "Start" : "Stop"}
         </button>
@@ -116,7 +136,7 @@ const PomodoroTimer = () => {
           className="settings-btn"
           onClick={() => setOpenSettings(!openSettings)}
         >
-          Settings
+          <FontAwesomeIcon icon={faGear} />
         </button>
       </div>
       {openSettings ? <TimerSettings /> : <></>}
