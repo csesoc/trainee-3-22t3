@@ -12,15 +12,18 @@ const MinimisedTimer = () => {
   const minutes = currState.minutes;
   const seconds = currState.seconds;
 
+  const str = `${minutes >= 10 ? minutes : "0" + minutes}:${seconds >= 10 ? seconds : "0" + seconds}`;
+
   return (
     <MiniTimer
       ref={divRef}
       isStudyMode={currState.mode === TimerMode.Study ? true : false}
     >
-      <Header name="timer" heading="Timer" ref={divRef} />
-      <span className="mini-time">{`${
-        minutes >= 10 ? minutes : "0" + minutes
-      }:${seconds >= 10 ? seconds : "0" + seconds} `}</span>
+      <Header
+        name="timer"
+        heading={str}
+        ref={divRef}
+      />
     </MiniTimer>
   );
 };

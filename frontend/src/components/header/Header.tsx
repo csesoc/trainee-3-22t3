@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { navbarButtonState } from "../../recoil_state";
+import { navbarButtonState, zIndexValue } from "../../recoil_state";
 import { useRecoilState } from "recoil";
 import { faWindowMinimize } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,6 +35,7 @@ interface HeaderProps {
 const Header = forwardRef((props: HeaderProps, ref: any) => {
   const [toggleBtn, setToggleBtn] = useRecoilState(navbarButtonState);
   const [pressed, setPressed] = useState(false);
+  const [zIndex, setZIndex] = useRecoilState(zIndexValue);
 
   const handleOnClick = (key: keyof ButtonStates) => {
     const existingStates = { ...toggleBtn };
@@ -43,8 +44,10 @@ const Header = forwardRef((props: HeaderProps, ref: any) => {
   };
 
   const handleOnMouseDown = useCallback(() => {
+    setZIndex(zIndex + 1);
+    ref.current.style.zIndex = zIndex;
     setPressed(true);
-  }, []);
+  }, [zIndex]);
 
   useEffect(() => {
     if (!pressed) return;

@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { ButtonStates } from "../navbar/NavbarStyled";
 import { forwardRef } from "react";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { YTstate } from "../../recoil_state";
+import { YTstate, zIndexValue } from "../../recoil_state";
 import { useRecoilState } from "recoil";
 import { SearchbarStyled } from "./YoutubeHeaderStyle";
 
@@ -21,6 +21,7 @@ const YoutubeHeader = forwardRef((props: HeaderProps, ref: any) => {
   const [currentYTState, setYTState] = useRecoilState(YTstate);
   // search bar functional components
   const inputRef: any = useRef();
+  const [zIndex, setZIndex] = useRecoilState(zIndexValue);
   function youtube_parser(url: string): string | false {
     var regExp =
       /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -41,8 +42,10 @@ const YoutubeHeader = forwardRef((props: HeaderProps, ref: any) => {
   }
 
   const handleOnMouseDown = useCallback(() => {
+    setZIndex(zIndex + 1);
+    ref.current.style.zIndex = zIndex;
     setPressed(true);
-  }, []);
+  }, [zIndex]);
 
   useEffect(() => {
     if (!pressed) return;
