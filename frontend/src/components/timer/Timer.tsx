@@ -79,13 +79,13 @@ const PomodoroTimer = () => {
       {/* start/stop/resume + reset buttons */}
       <div className="timer-buttons">
         <button
-          className="timerbutton"
+          className="timer-btn-stop-start"
           onClick={() => updateStates({ started: !currState.started })}
         >
           {!currState.started ? "Start" : "Stop"}
         </button>
         <button
-          className="timerbutton"
+          className="timer-btn-reset"
           onClick={() =>
             updateStates({
               minutes:
@@ -112,7 +112,12 @@ const PomodoroTimer = () => {
             }
           />
         </label>
-        <button onClick={() => setOpenSettings(!openSettings)}>Settings</button>
+        <button
+          className="settings-btn"
+          onClick={() => setOpenSettings(!openSettings)}
+        >
+          Settings
+        </button>
       </div>
       {openSettings ? <TimerSettings /> : <></>}
     </Timer>

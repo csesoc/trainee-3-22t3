@@ -18,9 +18,9 @@ const MinimisedTimer = () => {
       isStudyMode={currState.mode === TimerMode.Study ? true : false}
     >
       <Header name="timer" heading="Timer" ref={divRef} />
-      {`${minutes >= 10 ? minutes : "0" + minutes}:${
-        seconds >= 10 ? seconds : "0" + seconds
-      } `}
+      <span className="mini-time">{`${
+        minutes >= 10 ? minutes : "0" + minutes
+      }:${seconds >= 10 ? seconds : "0" + seconds} `}</span>
     </MiniTimer>
   );
 };

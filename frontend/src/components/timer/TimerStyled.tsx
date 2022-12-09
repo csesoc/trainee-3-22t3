@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
+// Background color styling will change in the next version of it.
 const Timer = styled.div<{ isStudyMode: boolean }>`
-  background-color: ${(props) =>
-    props.isStudyMode ? "Canvas" : "rgb(56, 133, 138)"};
+  background-color: ${(props) => (props.isStudyMode ? "Canvas" : "Canvas")};
   min-height: 275px;
   // padding: 12px;
   width: 400px;
@@ -13,11 +13,8 @@ const Timer = styled.div<{ isStudyMode: boolean }>`
 `;
 
 const MiniTimer = styled(Timer)`
-  min-height: 10px;
-  width: 5vw;
-  display: flex;
-  justify-content: center;
-  font-size: 5vw;
+  min-height: 25px;
+  width: 150px;
 `;
 
 export const TimerModesRow = styled.div`
