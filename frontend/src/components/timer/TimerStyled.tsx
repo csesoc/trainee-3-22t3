@@ -11,9 +11,33 @@ const Timer = styled.div<{ isStudyMode: boolean }>`
   position: absolute;
 `;
 
-const MiniTimer = styled(Timer)`
-  min-height: 25px;
-  width: 150px;
+const MiniTimer = styled.div`
+  background: transparent;
+  position: fixed;
+  bottom: .5rem;
+  right: 2.5rem;
+  color: white;
+  filter: drop-shadow(1px 1px 1px rgba(black, .75));
+  text-align: right;
+  h1 {
+    font-size: 96px;
+    padding: 0;
+    margin: 0;
+  }
+  .dots {
+    display: flex;
+    margin: 1rem 0;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  .loader_dot { animation: 1s blink infinite }
+  .loader_dot:nth-child(2) { animation-delay: 250ms }
+  .loader_dot:nth-child(3) { animation-delay: 500ms }
+  @keyframes blink { 50% { color: transparent } }
 `;
 
 export const TimerModesRow = styled.div`

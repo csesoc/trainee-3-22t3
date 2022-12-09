@@ -78,7 +78,8 @@ function App() {
       <GlobalStyles />
       <Navbar />
       <div className="work-area">
-        {navbarButtonStates.timer ? <PomodoroTimer /> : <MinimisedTimer />}
+        <MinimisedTimer />
+        {navbarButtonStates.timer && <PomodoroTimer />}
         <Settings />
         {navbarButtonStates.youtube && <Youtube />}
         <Notes />
