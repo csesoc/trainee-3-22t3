@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import PomodoroTimer from "./components/timer/Timer";
 import MinimisedTimer from "./components/timer/MinimisedTimer";
-import { currentTimeState, navbarButtonState, globalStyles } from "./recoil_state";
+import {
+  globalStyles,
+  currentTimeState,
+  navbarButtonState,
+} from "./recoil_state";
 import { TimerMode } from "./components/timer/TimerStyled";
 import Navbar from "./components/navbar/Navbar";
 import { Fragment } from "react";
@@ -62,7 +66,7 @@ function App() {
       // document.title = "CRAZY IDEA";
     };
   }, [timerState]);
-  
+
   const currentGlobalStyles = useRecoilValue(globalStyles);
   const GlobalStyles = createGlobalStyle`
     :root {
