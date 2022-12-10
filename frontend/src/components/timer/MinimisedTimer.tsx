@@ -15,15 +15,20 @@ const MinimisedTimer = () => {
   const str = `${minutes >= 10 ? minutes : "0" + minutes}:${seconds >= 10 ? seconds : "0" + seconds}`;
 
   return (
-    <MiniTimer
-      ref={divRef}
-      isStudyMode={currState.mode === TimerMode.Study ? true : false}
-    >
-      <Header
-        name="timer"
-        heading={str}
-        ref={divRef}
-      />
+    <MiniTimer>
+      <h1>{str}</h1>
+      <div className="dots">
+        <h2>{currState.mode === TimerMode.Study ? "Studying" : "Having a break"}</h2>
+        <div className="loader_dot">
+          .
+        </div>
+        <div className="loader_dot">
+          .
+        </div>
+        <div className="loader_dot">
+          .
+        </div>
+      </div>
     </MiniTimer>
   );
 };
