@@ -19,6 +19,22 @@ as well as customization settings supporting,
   - Serif
   - Monospace
 
+## How To Start App
+
+```bash
+  git clone git@github.com:csesoc/trainee-3-22t3.git
+  cd frontend
+  npm install
+  npm run dev
+```
+
+## Tech Stack
+
+- React
+- Typescript
+- ViteJS
+- CSS
+
 # Gallery
 
 ## Widgets
