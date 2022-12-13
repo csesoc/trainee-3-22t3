@@ -24,4 +24,4 @@ as well as customization settings supporting,
 ### Widgets
 **Notes**
 
-<video src='notes_video.mov' width=360> </video>
+<video src='notes_video.mp4' width=360> </video>
