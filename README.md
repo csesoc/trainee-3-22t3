@@ -19,9 +19,31 @@ as well as customization settings supporting,
   - Serif
   - Monospace
 
-## Gallery
+# Gallery
 
-### Widgets
+## Widgets
+
+**Timer Widget**
+![Timer](timer_widget.gif)
+**To Do**
+![To Do](to_do_widget.gif)
 **Notes**
+![Notes](notes_widget.gif)
+**Video Player**
+![Video Player](video_player_widget.gif)
 
-<video src='https://github.com/csesoc/trainee-3-22t3/blob/hari-documentation/video_player_video.mp4' width=360></video>
+## Themes
+
+**Light Mode**
+![Light Mode](light_theme_pic.png)
+**Dark Mode**
+![Dark Mode](dark_theme_pic.png)
+
+## Fonts
+
+**Monospace**
+![mono space](monospace_font_pic.png)
+
+## Change Background Image
+
+![Changed background pic](change_bg_pic.png)
