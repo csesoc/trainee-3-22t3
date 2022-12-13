@@ -1,5 +1,7 @@
 # Loft
 
+## Summary
+
 Loft is a productivity web app with the following widgets,
 
 - Customizable Pomodoro Timer
@@ -17,8 +19,9 @@ as well as customization settings supporting,
   - Serif
   - Monospace
 
-# Gallery
+## Gallery
 
-## Widgets
-### Notes
-<video src='notes_video.mov' width=360/>
+### Widgets
+**Notes**
+
+<video src='notes_video.mov' width=360> </video>
