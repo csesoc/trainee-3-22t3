@@ -24,4 +24,4 @@ as well as customization settings supporting,
 ### Widgets
 **Notes**
 
-<video src='notes_video.mp4' width=360> </video>
+<video src='https://github.com/csesoc/trainee-3-22t3/blob/hari-documentation/video_player_video.mp4' width=360> </video>
