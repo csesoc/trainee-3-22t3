@@ -7,10 +7,18 @@ Loft is a productivity web app with the following widgets,
 - Notepad with Text Formatting
 - To Do List
 
-as well as customizable themes and fonts such as,
+as well as customization settings supporting,
 
-- light and dark mode
+- Themes
+  - light mode
+  - dark mode
+- Fonts
+  - Arial
+  - Serif
+  - Monospace
 
+# Gallery
 
-
-
+## Widgets
+### Notes
+<video src='notes_video.mov' width=360/>
