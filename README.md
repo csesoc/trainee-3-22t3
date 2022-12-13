@@ -23,20 +23,20 @@ as well as customization settings supporting,
 
 ## Widgets
 
-**Timer Widget**
+**Timer**
 ![Timer](timer_widget.gif)
-**To Do**
+**To-Do**
 ![To Do](to_do_widget.gif)
 **Notes**
 ![Notes](notes_widget.gif)
-**Video Player**
+**Video-Player**
 ![Video Player](video_player_widget.gif)
 
 ## Themes
 
-**Light Mode**
+**Light-Mode**
 ![Light Mode](light_theme_pic.png)
-**Dark Mode**
+**Dark-Mode**
 ![Dark Mode](dark_theme_pic.png)
 
 ## Fonts
