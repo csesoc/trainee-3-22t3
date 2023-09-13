@@ -41,36 +41,36 @@ as well as customization settings supporting,
 
 ### **Timer**
 
-![Timer](timer_widget.gif)
+![Timer](pics/timer_widget.gif)
 
 ### **To-Do**
 
-![To Do](to_do_widget.gif)
+![To Do](pics/to_do_widget.gif)
 
 ### **Notes**
 
-![Notes](notes_widget.gif)
+![Notes](pics/notes_widget.gif)
 
 ### **Video-Player**
 
-![Video Player](video_player_widget.gif)
+![Video Player](pics/video_player_widget.gif)
 
 ## Themes
 
 ### **Light-Mode**
 
-![Light Mode](light_theme_pic.png)
+![Light Mode](pics/light_theme_pic.png)
 
 ### **Dark-Mode**
 
-![Dark Mode](dark_theme_pic.png)
+![Dark Mode](pics/dark_theme_pic.png)
 
 ## Fonts
 
 ### **Monospace**
 
-![mono space](monospace_font_pic.png)
+![mono space](pics/monospace_font_pic.png)
 
 ## Change Background Image
 
-![Changed background pic](change_bg_pic.png)
+![Changed background pic](pics/change_bg_pic.png)
