@@ -2,7 +2,7 @@ import styled from "styled-components";
 export const YoutubeComponent = styled.div`
   position: absolute;
   margin-bottom: 10px;
-  min-width: 682px;
+  min-width: 360px;
   width: auto;
   margin: auto;
   height: auto;
@@ -11,7 +11,7 @@ export const YoutubeComponent = styled.div`
 `;
 export const videoTrue = styled.div`
   position: absolute;
-  min-width: 682px;
+  min-width: 360px;
   width: auto;
   height: auto;
 `;

@@ -39,8 +39,8 @@ const Youtube = () => {
         handleClose={handleOnClick}
       />
       <Resizable
-        minWidth="682px"
-        minHeight="380px"
+        minWidth="360px"
+        minHeight="202.5px"
         lockAspectRatio={true}
         enable={{
           top: false,
