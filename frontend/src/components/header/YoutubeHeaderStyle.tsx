@@ -2,12 +2,8 @@ import styled from "styled-components";
 
 export const SearchbarStyled = styled.div<{ pressed: boolean }>`
   display: flex;
-  min-width: 650px;
-  width: auto;
-  margin: auto;
   height: 30px;
   padding: 1rem;
-  backdrop-filter: "blur(200px)";
   background-color: Canvas;
   h1 {
     font-size: 24px;
@@ -37,7 +33,7 @@ export const SearchbarStyled = styled.div<{ pressed: boolean }>`
     margin-left: 0px;
     min-width: 30px;
     width: 100%;
-    max-width: 150px;
+    max-width: 80px;
     height: 29px;
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-left-width: 0px;

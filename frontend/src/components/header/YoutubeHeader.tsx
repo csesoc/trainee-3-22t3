@@ -33,12 +33,18 @@ const YoutubeHeader = forwardRef((props: HeaderProps, ref: any) => {
     const existingStates = { ...currentYTState };
     if (url === false) {
       console.log(`Link is of incorrect format`);
-      existingStates.videoId = "";
-      setYTState(existingStates);
       return;
     }
     existingStates.videoId = url;
     setYTState(existingStates);
+    // Check if the link leads to the most despised troll video 😳
+    if (import.meta.env.VITE_CTF_SECRET === url) {
+      alert(
+        `Trolled! Anyway, here is a part of the flag: ${
+          import.meta.env.VITE_CTF_FLAG
+        } - also watch other video or something 🤨`
+      );
+    }
   }
 
   const handleOnMouseDown = useCallback(() => {
@@ -89,14 +95,12 @@ const YoutubeHeader = forwardRef((props: HeaderProps, ref: any) => {
         icon={faYoutube}
         name="Youtube"
       />
-      <h1>{props.heading}</h1>
       <input
         ref={inputRef}
         className="urlInput"
         type="text"
         name="url"
         placeholder="Enter Youtube Link Here"
-        onKeyDown={handleSearchClick}
       />
       <button
         type="submit"
